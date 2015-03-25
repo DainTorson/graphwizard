@@ -30,7 +30,7 @@ and open the template in the editor.
 }
 
 .edgeInactive{
-    -fx-stroke: magenta;
+    -fx-stroke: red;
 }
 
 

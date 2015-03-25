@@ -43,6 +43,35 @@ public class DrawSpace extends Pane {
         this.operationType = operationType;
     }
 
+    public void reset(Graph newGraph, double coordinates [][]) {
+        if(graph != newGraph) {
+            graph.clear();
+            graph = newGraph;
+        }
+
+        for(int vertIdx = 0; vertIdx < graph.getNumOfVertices(); ++vertIdx) {
+            Vertex temp = graph.getVertex(vertIdx);
+            VertexView tempView = new VertexView(coordinates[vertIdx][0], coordinates[vertIdx][1],
+                    this, temp);
+            temp.setView(tempView);
+            temp.draw();
+            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler(this));
+            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
+            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+            vertexViews.add(tempView);
+        }
+
+        for(int edgeIdx = 0; edgeIdx < graph.getNumOfEdges(); ++edgeIdx) {
+            Edge temp = graph.getEdge(edgeIdx);
+            EdgeView tempView = new EdgeView(temp.getFirstVertex().getView(),
+                    temp.getSecondVertex().getView(), this, temp);
+            temp.setView(tempView);
+            temp.draw();
+            tempView.getLine().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+            edgeViews.add(tempView);
+        }
+    }
+
     private class VertexOperationHandler implements EventHandler<MouseEvent> {
 
         private DrawSpace drawSpace;
@@ -83,8 +112,7 @@ public class DrawSpace extends Pane {
         public void handle(VertexEvent event) {
             if(operationType == OperationType.EDGE) {
                 if (edgeDrawContext.isDrawing) {
-                    Edge temp = new Edge(edgeDrawContext.startVx, event.getTargetVx(),
-                            String.valueOf(graph.getNumOfEdges()));
+                    Edge temp = new Edge(edgeDrawContext.startVx, event.getTargetVx());
                     EdgeView tempView = new EdgeView(edgeDrawContext.startVx.getView(),
                             event.getTargetVx().getView(), drawSpace, temp);
                     temp.setView(tempView);

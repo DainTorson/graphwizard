@@ -8,7 +8,7 @@ public class Edge {
 
     private Vertex firstVertex;
     private Vertex secondVertex;
-    private String value = "";
+    private int value = 1;
     private EdgeView view;
 
     public Edge(Vertex start, Vertex end) {
@@ -16,7 +16,7 @@ public class Edge {
         this.secondVertex = end;
     }
 
-    public Edge(Vertex start, Vertex end, String value) {
+    public Edge(Vertex start, Vertex end, int value) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.value = value;
@@ -28,18 +28,18 @@ public class Edge {
         this.view = view;
     }
 
-    public Edge(Vertex start, Vertex end, EdgeView view, String value) {
+    public Edge(Vertex start, Vertex end, EdgeView view, int value) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.view = view;
         this.value = value;
     }
 
-    public String getValue() {
+    public int getValue() {
         return this.value;
     }
 
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 
@@ -61,6 +61,11 @@ public class Edge {
 
     public void delete() {
         this.view.delete();
+    }
+
+    public boolean isConnects(Vertex start, Vertex end) {
+        return ((start == firstVertex && end == secondVertex) ||
+                (start == secondVertex && end == firstVertex));
     }
 
     public void draw() {

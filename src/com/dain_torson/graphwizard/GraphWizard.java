@@ -24,7 +24,7 @@ public class GraphWizard extends Application {
         BorderPane root = new BorderPane();
         Graph graph = new Graph();
         DrawSpace drawSpace = new DrawSpace(primaryStage, graph);
-        TopMenuBar menu = new TopMenuBar(primaryStage, graph);
+        TopMenuBar menu = new TopMenuBar(primaryStage, graph, drawSpace);
         ToolBar toolBar = new ToolBar(drawSpace);
         InfoBar infobar = new InfoBar();
 

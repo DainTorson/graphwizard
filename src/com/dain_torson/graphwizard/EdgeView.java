@@ -3,6 +3,7 @@ package com.dain_torson.graphwizard;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 
 /**
  * Created by Ales on 22.03.2015.
@@ -99,7 +100,7 @@ public class EdgeView {
 
     public void  setActivity(boolean value) {
         this.isActive = value;
-        if(this.isActive == true) {
+        if(this.isActive) {
             this.line.getStyleClass().clear();
             this.line.getStyleClass().add("edgeActive");
         }

@@ -14,11 +14,11 @@ import javafx.stage.Stage;
  */
 public class TopMenuBar extends MenuBar{
     
-    public TopMenuBar(Stage stage, Graph graph)
+    public TopMenuBar(Stage stage, Graph graph, DrawSpace drawSpace)
     {
         this.getStyleClass().add("menubar");
         
-        MenuFile menuFile = new MenuFile("File", stage, graph);
+        MenuFile menuFile = new MenuFile("File", stage, graph, drawSpace);
         MenuEdit menuEdit = new MenuEdit("Edit");
         MenuHelp menuHelp = new MenuHelp("Help");
         this.getMenus().addAll(menuFile, menuEdit, menuHelp);
