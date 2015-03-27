@@ -30,6 +30,7 @@ public class DrawSpace extends Pane {
         this.addEventFilter(MouseEvent.MOUSE_PRESSED, new DefaultOperationHandler());
         this.addEventFilter(MouseEvent.MOUSE_MOVED, new EdgeDrawHandler());
         primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new DeleteKeyHandler());
+        primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new EscapeKeyHandler());
 
     }
 
@@ -50,25 +51,46 @@ public class DrawSpace extends Pane {
         }
 
         for(int vertIdx = 0; vertIdx < graph.getNumOfVertices(); ++vertIdx) {
-            Vertex temp = graph.getVertex(vertIdx);
-            VertexView tempView = new VertexView(coordinates[vertIdx][0], coordinates[vertIdx][1],
-                    this, temp);
-            temp.setView(tempView);
-            temp.draw();
-            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler(this));
-            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
-            tempView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
-            vertexViews.add(tempView);
+            Vertex newVertex = graph.getVertex(vertIdx);
+            VertexView newVertexView = new VertexView(coordinates[vertIdx][0], coordinates[vertIdx][1],
+                    this, newVertex);
+            newVertex.setView(newVertexView);
+            newVertex.draw();
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+            vertexViews.add(newVertexView);
         }
 
         for(int edgeIdx = 0; edgeIdx < graph.getNumOfEdges(); ++edgeIdx) {
-            Edge temp = graph.getEdge(edgeIdx);
-            EdgeView tempView = new EdgeView(temp.getFirstVertex().getView(),
-                    temp.getSecondVertex().getView(), this, temp);
-            temp.setView(tempView);
-            temp.draw();
-            tempView.getLine().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
-            edgeViews.add(tempView);
+            Edge newEdge = graph.getEdge(edgeIdx);
+            EdgeView newEdgeView = new EdgeView(newEdge.getFirstVertex().getView(),
+                    newEdge.getSecondVertex().getView(), this, newEdge);
+            newEdge.setView(newEdgeView);
+            newEdge.draw();
+            newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+            edgeViews.add(newEdgeView);
+        }
+    }
+
+    private void createEdge(Vertex firstVertex, Vertex secondVertex, boolean isOriented) {
+
+        Edge newEdge = new Edge(firstVertex, secondVertex, isOriented);
+        EdgeView newEdgeView = new EdgeView(firstVertex.getView(), secondVertex.getView(), this, newEdge);
+        newEdge.setView(newEdgeView);
+        newEdge.draw();
+        newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+        edgeViews.add(newEdgeView);
+        graph.addEdge(newEdge);
+    }
+
+    public void deselectAll() {
+        for(VertexView vertexView : vertexViews) {
+            vertexView.setActivity(false);
+        }
+
+        for(EdgeView edgeView : edgeViews) {
+            edgeView.setActivity(false);
         }
     }
 
@@ -87,42 +109,45 @@ public class DrawSpace extends Pane {
                     edgeDrawContext.isDrawing = false;
                     ghostEdge.hide();
                 }
-                Vertex temp = new Vertex(String.valueOf(graph.getNumOfVertices()));
-                VertexView tempView = new VertexView(event.getX(), event.getY(), drawSpace, temp);
-                temp.setView(tempView);
-                temp.draw();
-                tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler(drawSpace));
-                tempView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
-                tempView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
-                vertexViews.add(tempView);
-                graph.addVertex(temp);
+                Vertex newVertex = new Vertex(String.valueOf(graph.getNumOfVertices()));
+                VertexView newVertexView = new VertexView(event.getX(), event.getY(), drawSpace, newVertex );
+                newVertex.setView(newVertexView);
+                newVertex.draw();
+                newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler());
+                newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
+                newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+                vertexViews.add(newVertexView);
+                graph.addVertex(newVertex);
             }
         }
     }
 
     private class EdgeOperationHandler implements EventHandler<VertexEvent> {
 
-        private DrawSpace drawSpace;
-
-        public EdgeOperationHandler(DrawSpace drawSpace) {
-            this.drawSpace = drawSpace;
-        }
-
         @Override
         public void handle(VertexEvent event) {
-            if(operationType == OperationType.EDGE) {
+            if(operationType == OperationType.EDGE || operationType == OperationType.ORIENTED_EDGE) {
                 if (edgeDrawContext.isDrawing) {
-                    Edge temp = new Edge(edgeDrawContext.startVx, event.getTargetVx());
-                    EdgeView tempView = new EdgeView(edgeDrawContext.startVx.getView(),
-                            event.getTargetVx().getView(), drawSpace, temp);
-                    temp.setView(tempView);
-                    temp.draw();
-                    tempView.getLine().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
-                    edgeViews.add(tempView);
-                    graph.addEdge(temp);
+                    Edge temp = graph.isConnects(edgeDrawContext.startVx, event.getTargetVx());
+                    if(operationType == OperationType.EDGE) {
+                        if(temp != null) return;
+                        createEdge(edgeDrawContext.startVx, event.getTargetVx(), false);
+                    }
+                    else {
+                        if(temp != null) {
+                            if (graph.isExists(edgeDrawContext.startVx, event.getTargetVx()) == null) {
+                                temp.setDefaultType();
+                                temp.getView().update();
+                            }
+                        }
+                        else {
+                            createEdge(edgeDrawContext.startVx, event.getTargetVx(), true);
+                        }
+                    }
                     edgeDrawContext.isDrawing = false;
                     ghostEdge.hide();
-                } else {
+                }
+                else {
                     edgeDrawContext.startVx = event.getTargetVx();
                     edgeDrawContext.isDrawing = true;
                 }
@@ -134,14 +159,8 @@ public class DrawSpace extends Pane {
 
         @Override
         public void handle(MouseEvent event) {
+            deselectAll();
 
-            for(VertexView vertexView : vertexViews) {
-                vertexView.setActivity(false);
-            }
-
-            for(EdgeView edgeView : edgeViews) {
-                edgeView.setActivity(false);
-            }
         }
     }
 
@@ -199,6 +218,20 @@ public class DrawSpace extends Pane {
         }
     }
 
+    private class EscapeKeyHandler implements EventHandler<KeyEvent> {
+
+        @Override
+        public void handle(KeyEvent event) {
+            if(event.getCode() == KeyCode.ESCAPE) {
+                if (edgeDrawContext.isDrawing) {
+                    edgeDrawContext.isDrawing = false;
+                    ghostEdge.hide();
+                }
+                deselectAll();
+            }
+        }
+    }
+
     public class VertexDeleteHandler implements EventHandler<VertexEvent> {
 
         @Override
@@ -216,7 +249,7 @@ public class DrawSpace extends Pane {
         }
     }
 
-    public enum OperationType {DEFAULT, VERTEX, EDGE}
+    public enum OperationType {DEFAULT, VERTEX, EDGE, ORIENTED_EDGE}
 
     private class EdgeDrawContext {
 

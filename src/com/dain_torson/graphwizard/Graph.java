@@ -16,36 +16,6 @@ public class Graph {
 
     }
 
-    public Graph(int adjacencyMatrix [][], String values [], int size) {
-
-        for(int vertIdx = 0; vertIdx < size; ++vertIdx) {
-            String value = values[vertIdx];
-            Vertex temp = new Vertex(value);
-            vertexes.add(temp);
-        }
-
-        for(int row = 0; row < size; ++row) {
-            for(int col = 0; col < size; ++col) {
-                if(adjacencyMatrix[row][col] > 0) {
-                    boolean isEdgeExists = false;
-                    for(Edge edge : edges) {
-                        if(edge.isConnects(vertexes.get(row), vertexes.get(col))) {
-                            isEdgeExists = true;
-                        }
-                    }
-                    if(!isEdgeExists) {
-                        Edge temp = new Edge(vertexes.get(row), vertexes.get(col),
-                                adjacencyMatrix[row][col]);
-                        edges.add(temp);
-                    }
-                }
-            }
-        }
-
-        System.out.print(vertexes.size());
-        System.out.print(edges.size());
-    }
-
     public void addVertex(Vertex vertex) {
         vertexes.add(vertex);
     }
@@ -113,6 +83,38 @@ public class Graph {
         edges.clear();
     }
 
+    public void reset(int adjacencyMatrix [][], String values [], int size) {
+
+        this.clear();
+
+        for(int vertIdx = 0; vertIdx < size; ++vertIdx) {
+            String value = values[vertIdx];
+            Vertex temp = new Vertex(value);
+            vertexes.add(temp);
+        }
+
+        for(int row = 0; row < size; ++row) {
+            for(int col = 0; col < size; ++col) {
+                if(adjacencyMatrix[row][col] > 0) {
+                    boolean isEdgeConnects = false;
+                    for(Edge edge : edges) {
+                        if(edge.isConnects(vertexes.get(row), vertexes.get(col))) {
+                            if(!edge.isExists(vertexes.get(row), vertexes.get(col))) {
+                                edge.setDefaultType();
+                            }
+                            isEdgeConnects = true;
+                        }
+                    }
+                    if(!isEdgeConnects ) {
+                        Edge temp = new Edge(vertexes.get(row), vertexes.get(col),
+                                adjacencyMatrix[row][col], true);
+                        edges.add(temp);
+                    }
+                }
+            }
+        }
+    }
+
     public int [][] getAdjacencyMatrix() {
         int size = vertexes.size();
         int matrix [][] = new int [size][size];
@@ -123,10 +125,17 @@ public class Graph {
                 Vertex second = vertexes.get(col);
 
                 for(Edge edge : edges) {
-                    if((edge.getFirstVertex() == first && edge.getSecondVertex() == second) ||
-                            (edge.getFirstVertex() == second && edge.getSecondVertex() == first)) {
-                        matrix[row][col] = edge.getValue();
-                        break;
+                    if(edge.isOriented()) {
+                        if (edge.isExists(first, second)) {
+                            matrix[row][col] = edge.getValue();
+                            break;
+                        }
+                    }
+                    else {
+                        if (edge.isConnects(first, second)) {
+                            matrix[row][col] = edge.getValue();
+                            break;
+                        }
                     }
                 }
             }
@@ -153,5 +162,25 @@ public class Graph {
             values[vertIdx] = vertexes.get(vertIdx).getValue();
         }
         return values;
+    }
+
+    public Edge isExists(Vertex start, Vertex end) {
+        for (Edge edge : edges) {
+            if(edge.isExists(start, end)) {
+                return edge;
+            }
+        }
+
+        return null;
+    }
+
+    public Edge isConnects(Vertex start, Vertex end) {
+        for (Edge edge : edges) {
+            if(edge.isConnects(start, end)) {
+                return edge;
+            }
+        }
+
+        return null;
     }
 }

@@ -16,21 +16,26 @@ import javafx.scene.layout.VBox;
  */
 public class ToolBar extends VBox{
 
+    private static int buttonSize = 40;
+
     public ToolBar(DrawSpace drawSpace)
     {
         this.getStyleClass().add("toolbar");
         Button cursorButton = new Button("C");
-        cursorButton.setPrefSize(40, 40);
+        cursorButton.setPrefSize(buttonSize, buttonSize);
         Button vertexButton = new Button("V");
-        vertexButton.setPrefSize(40, 40);
+        vertexButton.setPrefSize(buttonSize, buttonSize);
         Button edgeButton = new Button("E");
-        edgeButton.setPrefSize(40, 40);
+        edgeButton.setPrefSize(buttonSize, buttonSize);
+        Button orientedButton = new Button("OE");
+        orientedButton.setPrefSize(buttonSize, buttonSize);
 
         cursorButton.setOnAction(new CursorButtonHandler(drawSpace));
         vertexButton.setOnAction(new VertexButtonHandler(drawSpace));
         edgeButton.setOnAction(new EdgeButtonHandler(drawSpace));
+        orientedButton.setOnAction(new OrientedButtonHandler(drawSpace));
 
-        this.getChildren().addAll(cursorButton, vertexButton, edgeButton);
+        this.getChildren().addAll(cursorButton, vertexButton, edgeButton, orientedButton);
     
     }
 
@@ -75,6 +80,21 @@ public class ToolBar extends VBox{
         @Override
         public void handle(ActionEvent event) {
             drawSpace.setOperationType(DrawSpace.OperationType.EDGE);
+
+        }
+    }
+
+    private class OrientedButtonHandler implements EventHandler<ActionEvent> {
+
+        private DrawSpace drawSpace;
+
+        public OrientedButtonHandler(DrawSpace drawSpace) {
+            this.drawSpace = drawSpace;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            drawSpace.setOperationType(DrawSpace.OperationType.ORIENTED_EDGE);
 
         }
     }

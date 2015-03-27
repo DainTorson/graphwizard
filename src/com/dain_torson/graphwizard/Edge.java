@@ -10,29 +10,34 @@ public class Edge {
     private Vertex secondVertex;
     private int value = 1;
     private EdgeView view;
+    private boolean oriented = false;
 
-    public Edge(Vertex start, Vertex end) {
+    public Edge(Vertex start, Vertex end, boolean isOriented) {
         this.firstVertex = start;
         this.secondVertex = end;
+        this.oriented = isOriented;
     }
 
-    public Edge(Vertex start, Vertex end, int value) {
+    public Edge(Vertex start, Vertex end, int value, boolean isOriented) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.value = value;
+        this.oriented = isOriented;
     }
 
-    public Edge(Vertex start, Vertex end, EdgeView view) {
+    public Edge(Vertex start, Vertex end, EdgeView view, boolean isOriented) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.view = view;
+        this.oriented = isOriented;
     }
 
-    public Edge(Vertex start, Vertex end, EdgeView view, int value) {
+    public Edge(Vertex start, Vertex end, EdgeView view, int value, boolean isOriented) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.view = view;
         this.value = value;
+        this.oriented = isOriented;
     }
 
     public int getValue() {
@@ -66,6 +71,18 @@ public class Edge {
     public boolean isConnects(Vertex start, Vertex end) {
         return ((start == firstVertex && end == secondVertex) ||
                 (start == secondVertex && end == firstVertex));
+    }
+
+    public boolean isExists(Vertex start, Vertex end) {
+        return (start == firstVertex && end == secondVertex);
+    }
+
+    public boolean isOriented() {
+        return oriented;
+    }
+
+    public void setDefaultType() {
+        oriented = false;
     }
 
     public void draw() {

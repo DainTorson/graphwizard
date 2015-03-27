@@ -2,17 +2,21 @@ package com.dain_torson.graphwizard;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Polygon;
+
+
 
 /**
  * Created by Ales on 22.03.2015.
  */
 public class EdgeView {
 
+    private static double width = 8;
+
     private VertexView firstVertex;
     private VertexView secondVertex;
-    private Line line;
+    private Polygon polygon = new Polygon();
+    //private Line line;
     private DrawSpace parentNode;
     private Edge edge;
     private boolean isActive = false;
@@ -25,11 +29,9 @@ public class EdgeView {
         firstVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
         secondVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
 
-        line = new Line(0, 0, 0, 0);
         relocator(null);
-        line.getStyleClass().add("edgeInactive");
-
-        line.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+        this.polygon.getStyleClass().add("edgeInactive");
+        polygon.addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 setActivity(true);
@@ -38,7 +40,7 @@ public class EdgeView {
     }
 
     public void draw() {
-        parentNode.getChildren().add(line);
+        parentNode.getChildren().addAll(polygon);
     }
 
     private double getHorisMargin(double x1, double x2, double y1, double y2) {
@@ -53,6 +55,15 @@ public class EdgeView {
         return 1.5 * VertexView.getRadius() * cos;
     }
 
+    private double getSin(double x1, double x2, double y1, double y2) {
+        return (x2 - x1)/(Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
+    }
+
+    private double getCos(double x1, double x2, double y1, double y2) {
+        return (y2 - y1)/(Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
+
+    }
+
     private void relocator(VertexEvent event) {
 
         double x1 = firstVertex.getX();
@@ -61,6 +72,8 @@ public class EdgeView {
         double y2 = secondVertex.getY();
 
         double newx1, newx2, newy1, newy2;
+        double point1x, point2x, point3x, point4x, point5x;
+        double point1y, point2y, point3y, point4y, point5y;
 
         if(event != null) {
 
@@ -79,10 +92,31 @@ public class EdgeView {
         newx2 = x2 + getHorisMargin(x2, x1, y2, y1);
         newy2 = y2 + getVertMargin(x2, x1, y2, y1);
 
-        line.setStartX(newx1);
-        line.setStartY(newy1);
-        line.setEndX(newx2);
-        line.setEndY(newy2);
+        point1x = newx1 + (width / 2) * getCos(x1, x2, y1, y2);
+        point1y = newy1 - (width / 2) * getSin(x1, x2, y1, y2);
+        point2x = newx1 - (width / 2) * getCos(x1, x2, y1, y2);
+        point2y = newy1 + (width / 2) * getSin(x1, x2, y1, y2);
+        point3x = newx2 + (width / 2) * getCos(x2, x1, y2, y1);
+        point3y = newy2 - (width / 2) * getSin(x2, x1, y2, y1);
+        point4x = newx2;
+        point4y = newy2;
+        point5x = newx2 - (width / 2) * getCos(x2, x1, y2, y1);
+        point5y = newy2 + (width / 2) * getSin(x2, x1, y2, y1);
+
+        if(edge.isOriented()) {
+            point3x += 1.5 * width * getSin(x2, x1, y2, y1);
+            point3y += 1.5 * width * getCos(x2, x1, y2, y1);
+            point5x += 1.5 * width * getSin(x2, x1, y2, y1);
+            point5y += 1.5 * width * getCos(x2, x1, y2, y1);
+        }
+
+        polygon.getPoints().clear();
+        polygon.getPoints().addAll(new Double [] {
+                point1x, point1y,
+                point2x, point2y,
+                point3x, point3y,
+                point4x, point4y,
+                point5x, point5y});
 
     }
 
@@ -90,8 +124,8 @@ public class EdgeView {
         return edge;
     }
 
-    public Line getLine() {
-        return line;
+    public Polygon getPolygon() {
+        return polygon;
     }
 
     public boolean getActivity() {
@@ -101,18 +135,21 @@ public class EdgeView {
     public void  setActivity(boolean value) {
         this.isActive = value;
         if(this.isActive) {
-            this.line.getStyleClass().clear();
-            this.line.getStyleClass().add("edgeActive");
-        }
-        else {
-            this.line.getStyleClass().clear();
-            this.line.getStyleClass().add("edgeInactive");
+            this.polygon.getStyleClass().clear();
+            this.polygon.getStyleClass().add("edgeActive");
+        } else {
+            this.polygon.getStyleClass().clear();
+            this.polygon.getStyleClass().add("edgeInactive");
         }
     }
 
     public void delete() {
-        line.fireEvent(new EdgeEvent(this.getEdge(), EdgeEvent.EDGE_DELETED));
-        this.parentNode.getChildren().remove(line);
+        polygon.fireEvent(new EdgeEvent(this.getEdge(), EdgeEvent.EDGE_DELETED));
+        this.parentNode.getChildren().remove(polygon);
+    }
+
+    public void update(){
+        relocator(null);
     }
 
     private class CircleRelocHandler implements EventHandler<VertexEvent> {

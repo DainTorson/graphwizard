@@ -15,6 +15,8 @@ public class GhostEdge {
         this.line = new Line(0, 0, 0, 0);
         drawSpace.getChildren().add(this.line);
         this.line.setVisible(false);
+        this.line.getStyleClass().add("ghostEdge");
+        this.line.getStrokeDashArray().addAll(10d, 5d, 2d, 5d);
     }
 
     public void setStartPoint(double x, double y) {

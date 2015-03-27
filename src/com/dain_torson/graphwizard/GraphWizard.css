@@ -26,11 +26,18 @@ and open the template in the editor.
 }
 
 .edgeActive{
-    -fx-stroke: limegreen;
+    -fx-strokeWidth: 0;
+    -fx-fill: limegreen;
 }
 
 .edgeInactive{
-    -fx-stroke: red;
+    -fx-strokeWidth: 0;
+    -fx-fill: orangered;
+    -fx-opacity: 0.5;
+}
+
+.ghostEdge{
+    -fx-stroke: darkblue;
 }
 
 

@@ -71,6 +71,8 @@ public class MenuFile extends Menu {
             String values [];
 
             FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open graph");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("GWG", "*.gwg"));
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 try {
@@ -112,8 +114,7 @@ public class MenuFile extends Menu {
                             System.out.println(values[i]);
                         }
 
-                        graph.clear();
-                        graph = new Graph(matrix, values, size);
+                        graph.reset(matrix, values, size);
                         drawSpace.reset(graph, cooordinates);
                     }
                 }
@@ -145,6 +146,9 @@ public class MenuFile extends Menu {
             String values [] = graph.getVerticesValues();
 
             FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save as");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("GWG", "*.gwg"));
+            fileChooser.setInitialFileName("NewGraph.gwg");
             File file = fileChooser.showSaveDialog(stage);
             if(file != null) {
                 try {
