@@ -80,7 +80,7 @@ public class VertexView {
 
     public void setActivity(boolean value) {
         this.isActive = value;
-        if(this.isActive == true) {
+        if(this.isActive) {
             this.circle.getStyleClass().clear();
             this.circle.getStyleClass().add("vertexActive");
         }
@@ -128,9 +128,13 @@ public class VertexView {
                 double newY = circleContext.prevY - circleContext.prevMouseY + event.getY();
                 double newLabelX = labelContext.prevX - circleContext.prevMouseX + event.getX();
                 double newLabelY = labelContext.prevY - circleContext.prevMouseY + event.getY();
-                if (newX + circle.getLayoutX() - radius > 0 && newY + circle.getLayoutY() - radius > 0
-                        && newX + circle.getLayoutX() + radius < parentNode.getWidth()
-                        && newY + circle.getLayoutY() + radius < parentNode.getHeight()) {
+                if (newX + circle.getLayoutX() - radius > 0 && newY + circle.getLayoutY() - radius > 0) {
+                        if(newX + circle.getLayoutX() + radius > parentNode.getPrefWidth()) {
+                            parentNode.setPrefWidth(parentNode.getPrefWidth() + 100);
+                        }
+                        if(newY + circle.getLayoutY() + radius > parentNode.getPrefHeight()) {
+                            parentNode.setPrefHeight(parentNode.getPrefHeight() + 100);
+                        }
 
                     circle.setCenterX(newX);
                     circle.setCenterY(newY);

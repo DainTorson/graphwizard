@@ -9,8 +9,9 @@ import java.util.List;
  */
 public class Graph {
 
-    public List<Vertex> vertexes = new ArrayList<Vertex>();
+    private List<Vertex> vertexes = new ArrayList<Vertex>();
     private List<Edge> edges = new ArrayList<Edge>();
+    private String name = "NewGraph";
 
     public Graph() {
 

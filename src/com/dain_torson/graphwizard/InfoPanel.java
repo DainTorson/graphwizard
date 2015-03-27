@@ -14,7 +14,7 @@ import javafx.scene.control.TitledPane;
  * @author Ales
  */
 public class InfoPanel extends Accordion{
-    
+
     TitledPane tpName = new TitledPane();
     TitledPane tpVertices = new TitledPane();
     TitledPane tpEdges = new TitledPane();

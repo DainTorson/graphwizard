@@ -22,12 +22,14 @@ public class DrawSpace extends Pane {
     private List<VertexView> vertexViews = new ArrayList<VertexView>();
     private List<EdgeView> edgeViews = new ArrayList<EdgeView>();
 
-    public DrawSpace(Stage primaryStage, Graph graph) {
+    public DrawSpace(Stage primaryStage, ScrollSpace scrollSpace, Graph graph) {
 
         this.graph = graph;
         this.ghostEdge = new GhostEdge(this);
+        scrollSpace.setContent(this);
+        this.setPrefSize(800, 600);
         this.addEventFilter(MouseEvent.MOUSE_PRESSED, new VertexOperationHandler(this));
-        this.addEventFilter(MouseEvent.MOUSE_PRESSED, new DefaultOperationHandler());
+        this.addEventFilter(MouseEvent.MOUSE_PRESSED, new DefaultOperationHandler(this));
         this.addEventFilter(MouseEvent.MOUSE_MOVED, new EdgeDrawHandler());
         primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new DeleteKeyHandler());
         primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new EscapeKeyHandler());
@@ -157,10 +159,14 @@ public class DrawSpace extends Pane {
 
     private class DefaultOperationHandler implements EventHandler<MouseEvent> {
 
+        DrawSpace drawSpace;
+        public DefaultOperationHandler(DrawSpace drawSpace) {
+            this.drawSpace = drawSpace;
+        }
         @Override
         public void handle(MouseEvent event) {
             deselectAll();
-
+            System.out.println(event.getSceneX());
         }
     }
 

@@ -16,7 +16,6 @@ public class EdgeView {
     private VertexView firstVertex;
     private VertexView secondVertex;
     private Polygon polygon = new Polygon();
-    //private Line line;
     private DrawSpace parentNode;
     private Edge edge;
     private boolean isActive = false;
