@@ -15,7 +15,6 @@ public class MenuEdit extends Menu {
 
     public MenuEdit(String name) {
         this.setText(name);
-
     }
 
 }

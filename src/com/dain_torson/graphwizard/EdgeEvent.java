@@ -9,7 +9,7 @@ import javafx.event.EventType;
 public class EdgeEvent extends Event {
 
     private Edge targetEdge;
-    public static EventType<EdgeEvent> EDGE_PRESSED = new EventType("EDGE_PRESSED");
+    public static EventType<EdgeEvent> EDGE_SPRESSED = new EventType("EDGE_SPRESSED");
     public static EventType<EdgeEvent> EDGE_DELETED = new EventType("EDGE_DELETED");
 
     public EdgeEvent(Edge target, EventType<EdgeEvent> edgeEventType) {

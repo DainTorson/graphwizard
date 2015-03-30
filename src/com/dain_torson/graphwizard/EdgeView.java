@@ -1,6 +1,8 @@
 package com.dain_torson.graphwizard;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polygon;
 
@@ -16,15 +18,17 @@ public class EdgeView {
     private VertexView firstVertex;
     private VertexView secondVertex;
     private Polygon polygon = new Polygon();
+    private Label label;
     private DrawSpace parentNode;
     private Edge edge;
     private boolean isActive = false;
 
-    public EdgeView(VertexView start, VertexView end, DrawSpace pNode, Edge edge) {
+    public EdgeView(VertexView start, VertexView end, DrawSpace pNode, final Edge edge) {
         this.firstVertex = start;
         this.secondVertex = end;
         this.edge = edge;
         this.parentNode = pNode;
+        this.label = new Label(String.valueOf(edge.getValue()));
         firstVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
         secondVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
 
@@ -34,12 +38,16 @@ public class EdgeView {
             @Override
             public void handle(MouseEvent event) {
                 setActivity(true);
+                if(event.getButton() == MouseButton.SECONDARY) {
+                    polygon.fireEvent(new EdgeEvent(edge, EdgeEvent.EDGE_SPRESSED));
+                }
             }
         });
+
     }
 
     public void draw() {
-        parentNode.getChildren().addAll(polygon);
+        parentNode.getChildren().addAll(polygon, label);
     }
 
     private double getHorisMargin(double x1, double x2, double y1, double y2) {
@@ -116,6 +124,13 @@ public class EdgeView {
                 point3x, point3y,
                 point4x, point4y,
                 point5x, point5y});
+
+        double edgeLength = Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
+        double labelX = newx1 + width * getCos(x1, x2, y1, y2) + (edgeLength / 2.7) * getSin(x1, x2, y1, y2);
+        double labelY = newy1 + width * getSin(x1, x2, y1, y2) + (edgeLength / 2.7) * getCos(x1, x2, y1, y2);
+
+        label.setLayoutX(labelX);
+        label.setLayoutY(labelY);
 
     }
 

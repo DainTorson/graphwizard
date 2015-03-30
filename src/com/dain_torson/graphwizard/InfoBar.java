@@ -12,13 +12,11 @@ import javafx.scene.layout.VBox;
  * @author Ales
  */
 public class InfoBar extends VBox{
-    
-    InfoPanel infoPanel = new InfoPanel();
+
     
     public InfoBar()
     {
-        this.getStyleClass().add("toolbar");
-        this.getChildren().addAll(infoPanel);
+
     }
     
 }

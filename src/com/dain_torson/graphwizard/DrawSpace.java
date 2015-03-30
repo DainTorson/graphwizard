@@ -1,6 +1,7 @@
 package com.dain_torson.graphwizard;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Side;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +19,8 @@ public class DrawSpace extends Pane {
     private OperationType operationType = OperationType.DEFAULT;
     private Graph graph;
     private GhostEdge ghostEdge;
+    private VertexContextMenu vertexContextMenu;
+    private EdgeContextMenu edgeContextMenu;
     private EdgeDrawContext edgeDrawContext = new EdgeDrawContext();
     private List<VertexView> vertexViews = new ArrayList<VertexView>();
     private List<EdgeView> edgeViews = new ArrayList<EdgeView>();
@@ -25,6 +28,8 @@ public class DrawSpace extends Pane {
     public DrawSpace(Stage primaryStage, ScrollSpace scrollSpace, Graph graph) {
 
         this.graph = graph;
+        this.vertexContextMenu = new VertexContextMenu(graph);
+        this.edgeContextMenu = new EdgeContextMenu(graph);
         this.ghostEdge = new GhostEdge(this);
         scrollSpace.setContent(this);
         this.setPrefSize(800, 600);
@@ -61,6 +66,7 @@ public class DrawSpace extends Pane {
             newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler());
             newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
             newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_SPRESSED, new VertexSecondaryPressedHandler());
             vertexViews.add(newVertexView);
         }
 
@@ -71,6 +77,7 @@ public class DrawSpace extends Pane {
             newEdge.setView(newEdgeView);
             newEdge.draw();
             newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+            newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_SPRESSED, new EdgeSecondaryPressedHandler());
             edgeViews.add(newEdgeView);
         }
     }
@@ -82,6 +89,7 @@ public class DrawSpace extends Pane {
         newEdge.setView(newEdgeView);
         newEdge.draw();
         newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+        newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_SPRESSED, new EdgeSecondaryPressedHandler());
         edgeViews.add(newEdgeView);
         graph.addEdge(newEdge);
     }
@@ -118,6 +126,7 @@ public class DrawSpace extends Pane {
                 newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler());
                 newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
                 newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+                newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_SPRESSED, new VertexSecondaryPressedHandler());
                 vertexViews.add(newVertexView);
                 graph.addVertex(newVertex);
             }
@@ -238,7 +247,7 @@ public class DrawSpace extends Pane {
         }
     }
 
-    public class VertexDeleteHandler implements EventHandler<VertexEvent> {
+    private class VertexDeleteHandler implements EventHandler<VertexEvent> {
 
         @Override
         public void handle(VertexEvent event) {
@@ -246,12 +255,33 @@ public class DrawSpace extends Pane {
         }
     }
 
-    public class EdgeDeleteHandler implements EventHandler<EdgeEvent> {
+    private class EdgeDeleteHandler implements EventHandler<EdgeEvent> {
 
         @Override
         public void handle(EdgeEvent event) {
             edgeViews.remove(event.getTargetEdge().getView());
-            System.out.println("EdgeViewes " + String.valueOf(edgeViews.size()));
+        }
+    }
+
+    private class VertexSecondaryPressedHandler implements EventHandler<VertexEvent> {
+
+        @Override
+        public void handle(VertexEvent event) {
+            if(operationType == OperationType.DEFAULT) {
+                vertexContextMenu.setSource(event.getTargetVx());
+                vertexContextMenu.show(event.getTargetVx().getView().getCircle(), Side.RIGHT, 10, 0);
+            }
+        }
+    }
+
+    private class EdgeSecondaryPressedHandler implements EventHandler<EdgeEvent> {
+
+        @Override
+        public void handle(EdgeEvent event) {
+            if(operationType == OperationType.DEFAULT) {
+                edgeContextMenu.setSource(event.getTargetEdge());
+                edgeContextMenu.show(event.getTargetEdge().getView().getPolygon(), Side.RIGHT, 0, 0);
+            }
         }
     }
 

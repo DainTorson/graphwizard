@@ -2,6 +2,7 @@ package com.dain_torson.graphwizard;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
@@ -35,8 +36,11 @@ public class VertexView {
 
         this.circle.addEventFilter(MouseEvent.MOUSE_PRESSED, new CirclePressedEventHandler(this));
         this.circle.addEventFilter(MouseEvent.MOUSE_DRAGGED, new CircleDraggedEventHandler(this));
+        this.circle.addEventFilter(MouseEvent.MOUSE_PRESSED, new CircleSecondaryPressedHandler(this));
+
         this.label.addEventFilter(MouseEvent.MOUSE_PRESSED, new LabelPressedEventHandler());
         this.label.addEventFilter(MouseEvent.MOUSE_DRAGGED, new LabelDraggedEventHandler());
+
 
     }
 
@@ -72,10 +76,14 @@ public class VertexView {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+        this.label.setText(name);
+    }
+
     public void delete() {
         parentNode.getChildren().removeAll(circle, label);
         circle.fireEvent(new VertexEvent(this.getVertex(), VertexEvent.VERTEX_DELETED));
-        //this.vertex = null;
     }
 
     public void setActivity(boolean value) {
@@ -144,6 +152,23 @@ public class VertexView {
                 }
             }
         }
+    }
+
+    public class CircleSecondaryPressedHandler implements EventHandler<MouseEvent> {
+
+        VertexView parentVertex;
+
+        public CircleSecondaryPressedHandler(VertexView pVertex) {
+            this.parentVertex = pVertex;
+        }
+
+        @Override
+        public void handle(MouseEvent event) {
+            if(event.getButton() == MouseButton.SECONDARY) {
+                circle.fireEvent(new VertexEvent(parentVertex.getVertex(), VertexEvent.VERTEX_SPRESSED));
+            }
+        }
+
     }
 
     private class LabelPressedEventHandler implements EventHandler<MouseEvent> {

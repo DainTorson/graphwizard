@@ -1,8 +1,5 @@
 package com.dain_torson.graphwizard;
 
-/**
- * Created by Ales on 22.03.2015.
- */
 public class Vertex {
 
     private String value = "";
@@ -31,6 +28,7 @@ public class Vertex {
 
     public void setValue(String value) {
         this.value = value;
+        this.getView().setName(value);
     }
 
     public VertexView getView() {

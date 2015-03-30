@@ -11,6 +11,7 @@ public class VertexEvent extends Event {
     private Vertex targetVx;
     public static EventType<VertexEvent> VERTEX_RELOCATED = new EventType("VERTEX_RELOCATED");
     public static EventType<VertexEvent> VERTEX_PRESSED = new EventType("VERTEX_PRESSED");
+    public static EventType<VertexEvent> VERTEX_SPRESSED = new EventType("VERTEX_SPRESSED");
     public static EventType<VertexEvent> VERTEX_DELETED = new EventType("VERTEX_DELETED");
 
     public VertexEvent(Vertex target, EventType<VertexEvent> vertexEventType) {
