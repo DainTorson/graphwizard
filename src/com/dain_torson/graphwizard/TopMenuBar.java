@@ -18,8 +18,8 @@ public class TopMenuBar extends MenuBar{
     {
         this.getStyleClass().add("menubar");
         
-        MenuFile menuFile = new MenuFile("File", stage, graph, drawSpace);
-        MenuEdit menuEdit = new MenuEdit("Edit");
+        MenuFile menuFile = new MenuFile(stage, graph, drawSpace);
+        MenuEdit menuEdit = new MenuEdit(graph);
         MenuHelp menuHelp = new MenuHelp("Help");
         this.getMenus().addAll(menuFile, menuEdit, menuHelp);
         

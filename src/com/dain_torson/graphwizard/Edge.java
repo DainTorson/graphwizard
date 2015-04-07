@@ -1,9 +1,5 @@
 package com.dain_torson.graphwizard;
 
-
-/**
- * Created by asus on 06.03.2015.
- */
 public class Edge {
 
     private Vertex firstVertex;
@@ -46,6 +42,7 @@ public class Edge {
 
     public void setValue(int value) {
         this.value = value;
+        this.view.update();
     }
 
     public EdgeView getView() {

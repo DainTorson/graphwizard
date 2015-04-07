@@ -6,11 +6,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polygon;
 
-
-
-/**
- * Created by Ales on 22.03.2015.
- */
 public class EdgeView {
 
     private static double width = 8;
@@ -125,9 +120,8 @@ public class EdgeView {
                 point4x, point4y,
                 point5x, point5y});
 
-        double edgeLength = Math.sqrt((Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
-        double labelX = newx1 + width * getCos(x1, x2, y1, y2) + (edgeLength / 2.7) * getSin(x1, x2, y1, y2);
-        double labelY = newy1 + width * getSin(x1, x2, y1, y2) + (edgeLength / 2.7) * getCos(x1, x2, y1, y2);
+        double labelX = newx1 + (newx2 - newx1) / 2;
+        double labelY = newy1 + (newy2 - newy1) / 2;
 
         label.setLayoutX(labelX);
         label.setLayoutY(labelY);
@@ -159,11 +153,12 @@ public class EdgeView {
 
     public void delete() {
         polygon.fireEvent(new EdgeEvent(this.getEdge(), EdgeEvent.EDGE_DELETED));
-        this.parentNode.getChildren().remove(polygon);
+        this.parentNode.getChildren().removeAll(polygon, label);
     }
 
     public void update(){
         relocator(null);
+        this.label.setText(String.valueOf(edge.getValue()));
     }
 
     private class CircleRelocHandler implements EventHandler<VertexEvent> {

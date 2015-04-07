@@ -19,7 +19,7 @@ public class GraphWizard extends Application {
     
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(final Stage primaryStage) {
         
         BorderPane root = new BorderPane();
         Graph graph = new Graph();

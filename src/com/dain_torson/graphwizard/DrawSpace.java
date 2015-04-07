@@ -1,5 +1,7 @@
 package com.dain_torson.graphwizard;
 
+
+import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.geometry.Side;
 import javafx.scene.input.KeyCode;
@@ -11,9 +13,6 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Ales on 16.03.2015.
- */
 public class DrawSpace extends Pane {
 
     private OperationType operationType = OperationType.DEFAULT;
@@ -26,7 +25,6 @@ public class DrawSpace extends Pane {
     private List<EdgeView> edgeViews = new ArrayList<EdgeView>();
 
     public DrawSpace(Stage primaryStage, ScrollSpace scrollSpace, Graph graph) {
-
         this.graph = graph;
         this.vertexContextMenu = new VertexContextMenu(graph);
         this.edgeContextMenu = new EdgeContextMenu(graph);

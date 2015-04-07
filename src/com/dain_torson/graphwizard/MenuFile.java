@@ -23,9 +23,9 @@ public class MenuFile extends Menu {
 
     Stage newStage = new Stage();
 
-    public MenuFile(String name, Stage stage, Graph graph, DrawSpace drawSpace) {
+    public MenuFile(Stage stage, Graph graph, DrawSpace drawSpace) {
         this.newStage = stage;
-        this.setText(name);
+        this.setText("File");
         MenuItem itemNew = new MenuItem("New");
         MenuItem itemOpen = new MenuItem("Open");
         MenuItem itemSave = new MenuItem("Save");
@@ -97,23 +97,6 @@ public class MenuFile extends Menu {
                     }
 
                     if(size != 0) {
-                        for(int i = 0; i < size; ++i) {
-                            for(int j = 0; j < size; ++j)
-                                System.out.print(String.valueOf(matrix[i][j]) + " ");
-                            System.out.println();
-                        }
-
-                        System.out.println();
-
-                        for(int i = 0; i < size; ++i) {
-                            System.out.println(String.valueOf(cooordinates[i][0]) + " " +
-                                    String.valueOf(cooordinates[i][1]));
-                        }
-
-                        for(int i = 0; i < size; ++i) {
-                            System.out.println(values[i]);
-                        }
-
                         graph.reset(matrix, values, size);
                         drawSpace.reset(graph, cooordinates);
                     }

@@ -25,6 +25,9 @@ and open the template in the editor.
     -fx-fill: darkblue;
 }
 
+.vertexExceptional{
+    -fx-fill: yellow;
+}
 .edgeActive{
     -fx-strokeWidth: 0;
     -fx-fill: limegreen;
@@ -39,5 +42,7 @@ and open the template in the editor.
 .ghostEdge{
     -fx-stroke: darkblue;
 }
+
+
 
 

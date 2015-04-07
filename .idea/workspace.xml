@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94e108c0-5cce-4072-9851-26a1c44e4a0f" name="Default" comment="Added context menus.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeContextMenu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeInputMsgBox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeOutputMsgBox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/InputMsgBox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/OutputMsgBox.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexContextMenu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInputMsgBox.java" />
-      <change type="DELETED" beforePath="E:\Studying\javaprog\GraphWizard\src\com\dain_torson\graphwizard\InfoPanel.java" afterPath="" />
+    <list default="true" id="94e108c0-5cce-4072-9851-26a1c44e4a0f" name="Default" comment="Added graph's center calculation.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$1.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$DefaultOperationHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$DefaultOperationHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$DeleteKeyHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$DeleteKeyHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$EdgeDeleteHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$EdgeDeleteHandler.class" />
@@ -21,17 +14,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$VertexDeleteHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$VertexDeleteHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$VertexOperationHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace$VertexOperationHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/DrawSpace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeEvent.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView$1.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView$CircleRelocHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView$CircleRelocHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Edge.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Edge.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/EdgeView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Graph.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Graph.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/GraphWizard.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/GraphWizard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/InfoBar.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/InfoBar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/InfoPanel.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/InfoPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuEdit.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuEdit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Vertex.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/Vertex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexEvent.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile$ItemExitEventHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile$ItemExitEventHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile$ItemOpenEventHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile$ItemOpenEventHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/MenuFile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/TopMenuBar.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/TopMenuBar.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$CircleDraggedEventHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$CircleDraggedEventHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$CirclePressedEventHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$CirclePressedEventHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$DragContext.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$DragContext.class" />
@@ -39,14 +30,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$LabelPressedEventHandler.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView$LabelPressedEventHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView.class" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/VertexView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeEvent.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/GraphWizard.css" afterPath="$PROJECT_DIR$/out/production/GraphWizard/com/dain_torson/graphwizard/GraphWizard.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/InfoBar.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/InfoBar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Vertex.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Vertex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexEvent.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -78,28 +70,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GraphWizard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GraphWizard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44959676" vertical-offset="134" max-vertical-offset="884">
-              <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VertexContextMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexContextMenu.java">
+      <file leaf-file-name="EdgeView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="969">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1088#1089#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="1638" max-vertical-offset="2720">
+              <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,48 +93,31 @@
       <file leaf-file-name="MenuEdit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-              <folding>
-                <element signature="e#356#357#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutputMsgBox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/OutputMsgBox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="612">
+              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InputMsgBox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/InputMsgBox.java">
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-              <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4504" max-vertical-offset="4998">
+              <caret line="292" column="41" selection-start-line="292" selection-start-column="41" selection-end-line="292" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1543#1544#0" expanded="true" />
-                <element signature="e#1578#1579#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VertexInputMsgBox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInputMsgBox.java">
+      <file leaf-file-name="Edge.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="1377">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,40 +125,41 @@
       <file leaf-file-name="DrawSpace.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="4981">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="4777">
+              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuFile.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21866667" vertical-offset="703" max-vertical-offset="3077">
+              <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VertexView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="3553">
+              <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3057#3058#0" expanded="true" />
+                <element signature="e#3090#3091#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InfoBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/InfoBar.java">
+      <file leaf-file-name="GraphWizard.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VertexEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="544">
-              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EdgeEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="918">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -218,15 +188,11 @@
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MyEvent.java" />
         <option value="$PROJECT_DIR$/src/DrawSpace.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/simplegrapheditor/MenuFile.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/ToolBar.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GhostEdge.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/ScrollSpace.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GWProject.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphComponent.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInfoItemMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeInfoItem.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInfoItem.java" />
@@ -234,21 +200,25 @@
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeInfoItemMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexEvent.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/InputMsgBox.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexContextMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInputMsgBox.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeInputMsgBox.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeOutputMsgBox.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeContextMenu.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Vertex.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/OutputMsgBox.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/InfoBar.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java" />
       </list>
     </option>
   </component>
@@ -575,7 +545,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427485337302</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added context menus.">
+      <created>1427740386195</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1427740386195</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -588,11 +564,11 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32647815" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32647815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32647815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18194444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -655,7 +631,8 @@
     <MESSAGE value="Fixed save/open issues. Added fancy edges." />
     <MESSAGE value="Added Sliders." />
     <MESSAGE value="Added context menus." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added context menus." />
+    <MESSAGE value="Added graph's center calculation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added graph's center calculation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,12 +649,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1142#1143#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -860,15 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.276" vertical-offset="269" max-vertical-offset="1581">
           <caret line="35" column="73" selection-start-line="35" selection-start-column="73" selection-end-line="35" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6169355" vertical-offset="0" max-vertical-offset="496">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -883,20 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
           <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1462">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#1142#1143#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -907,29 +856,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7733333" vertical-offset="83" max-vertical-offset="833">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2225" max-vertical-offset="3332">
-          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeInputMsgBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.476" vertical-offset="0" max-vertical-offset="750">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#373#590#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -937,35 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#628#945#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#983#1297#0" expanded="true" />
-            <element signature="e#1296#1297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3400">
-          <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
-          <folding>
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7346#7347#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="782">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -973,28 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1791" max-vertical-offset="2839">
-          <caret line="120" column="35" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="363" max-vertical-offset="2601">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="method#deleteVertex#0;class#Graph#0" expanded="false" />
-            <element signature="method#deleteEdge#0;class#Graph#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1002,7 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="544">
           <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,58 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
           <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInputMsgBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexContextMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="969">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/OutputMsgBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="4981">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,29 +895,126 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexInputMsgBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5826613" vertical-offset="0" max-vertical-offset="496">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/InputMsgBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
+        <state vertical-scroll-proportion="0.58870965" vertical-offset="626" max-vertical-offset="1122">
           <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/OutputMsgBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexContextMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6189516" vertical-offset="288" max-vertical-offset="935">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/TopMenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5483871" vertical-offset="0" max-vertical-offset="496">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4455645" vertical-offset="187" max-vertical-offset="748">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="918">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4504" max-vertical-offset="4998">
+          <caret line="292" column="41" selection-start-line="292" selection-start-column="41" selection-end-line="292" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1543#1544#0" expanded="true" />
-            <element signature="e#1578#1579#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="1377">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/VertexView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="3553">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="21" selection-end-line="109" selection-end-column="21" />
+          <folding>
+            <element signature="e#3057#3058#0" expanded="true" />
+            <element signature="e#3090#3091#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/EdgeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1638" max-vertical-offset="2720">
+          <caret line="115" column="35" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44959676" vertical-offset="134" max-vertical-offset="884">
-          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/DrawSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="4777">
+          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/MenuFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21866667" vertical-offset="703" max-vertical-offset="3077">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

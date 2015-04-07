@@ -6,9 +6,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
-/**
- * Created by asus on 11.03.2015.
- */
 public class VertexView {
 
     static private final int margin = 30;
@@ -22,6 +19,7 @@ public class VertexView {
     private DragContext labelContext = new DragContext();
     private Vertex vertex;
     private boolean isActive = false;
+    private boolean isExceptional = false;
 
     public VertexView(double x, double y, DrawSpace pNode, Vertex vertex) {
 
@@ -78,7 +76,12 @@ public class VertexView {
 
     public void setName(String name) {
         this.name = name;
-        this.label.setText(name);
+        label.setText(name);
+    }
+
+    public void resetName() {
+        name = this.vertex.getValue();
+        label.setText(name);
     }
 
     public void delete() {
@@ -87,7 +90,7 @@ public class VertexView {
     }
 
     public void setActivity(boolean value) {
-        this.isActive = value;
+        isActive = value;
         if(this.isActive) {
             this.circle.getStyleClass().clear();
             this.circle.getStyleClass().add("vertexActive");
@@ -96,6 +99,16 @@ public class VertexView {
             this.circle.getStyleClass().clear();
             this.circle.getStyleClass().add("vertexInactive");
         }
+    }
+
+    public void setExceptional() {
+        isActive = false;
+        this.circle.getStyleClass().clear();
+        this.circle.getStyleClass().add("vertexExceptional");
+    }
+
+    public DrawSpace getParentNode() {
+        return parentNode;
     }
 
     private class CirclePressedEventHandler implements EventHandler<MouseEvent>  {
