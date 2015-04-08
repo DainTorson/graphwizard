@@ -30,7 +30,7 @@ public class MenuEdit extends Menu {
         calculateItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                List<Integer> list = source.findGraphCenter();
+                List<Integer> list = source.findGraphCenterVisualised();
 
                 for(Integer value : list) {
                     System.out.println(value);

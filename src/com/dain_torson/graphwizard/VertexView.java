@@ -20,6 +20,7 @@ public class VertexView implements ElementView{
     private Vertex vertex;
     private boolean isActive = false;
     private boolean isExceptional = false;
+    private boolean isMarked = false;
 
     public VertexView(double x, double y, DrawSpace pNode, Vertex vertex) {
 
@@ -97,14 +98,41 @@ public class VertexView implements ElementView{
         }
         else {
             this.circle.getStyleClass().clear();
-            this.circle.getStyleClass().add("vertexInactive");
+            if(isMarked) {
+                this.circle.getStyleClass().add("vertexMarked");
+            }
+            else {
+                this.circle.getStyleClass().add("vertexInactive");
+            }
         }
     }
 
-    public void setExceptional() {
-        isActive = false;
+    public void setExceptional(boolean value) {
+        isExceptional = value;
+        if(value) {
+            this.circle.getStyleClass().clear();
+            this.circle.getStyleClass().add("vertexExceptional");
+        }
+        else {
+            setActivity(false);
+        }
+    }
+
+    public void mark(){
+        isMarked = true;
         this.circle.getStyleClass().clear();
-        this.circle.getStyleClass().add("vertexExceptional");
+        this.circle.getStyleClass().add("vertexMarked");
+
+    }
+
+    public void unmark(){
+        isMarked = false;
+        this.circle.getStyleClass().clear();
+        this.circle.getStyleClass().add("vertexInactive");
+    }
+
+    public boolean isExceptional() {
+        return isExceptional;
     }
 
     public DrawSpace getParentNode() {

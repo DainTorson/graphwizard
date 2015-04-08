@@ -18,6 +18,8 @@ public class EdgeView implements ElementView{
     private DrawSpace parentNode;
     private Edge edge;
     private boolean isActive = false;
+    private boolean isExceptional = false;
+    private boolean isMarked = false;
 
     public EdgeView(VertexView start, VertexView end, DrawSpace pNode, final Edge edge) {
         this.firstVertex = start;
@@ -163,14 +165,41 @@ public class EdgeView implements ElementView{
             this.polygon.getStyleClass().add("edgeActive");
         } else {
             this.polygon.getStyleClass().clear();
-            this.polygon.getStyleClass().add("edgeInactive");
+            if(isMarked) {
+                this.polygon.getStyleClass().add("edgeMarked");
+            }
+            else {
+                this.polygon.getStyleClass().add("edgeInactive");
+            }
         }
     }
 
-    public void setExceptional() {
-        isActive = false;
+    public void setExceptional(boolean value) {
+        isExceptional = value;
+        if(value) {
+            this.polygon.getStyleClass().clear();
+            this.polygon.getStyleClass().add("edgeExceptional");
+        }
+        else {
+            setActivity(false);
+        }
+    }
+
+    public void mark(){
+        isMarked = true;
         this.polygon.getStyleClass().clear();
-        this.polygon.getStyleClass().add("edgeExceptional");
+        this.polygon.getStyleClass().add("edgeMarked");
+
+    }
+
+    public void unmark(){
+        isMarked = false;
+        this.polygon.getStyleClass().clear();
+        this.polygon.getStyleClass().add("edgeInactive");
+    }
+
+    public boolean isExceptional() {
+        return isExceptional;
     }
 
     public void delete() {

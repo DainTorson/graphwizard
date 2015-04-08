@@ -1,6 +1,11 @@
 package com.dain_torson.graphwizard;
 
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,7 +15,7 @@ public class Graph {
 
     private List<Vertex> vertexes = new ArrayList<Vertex>();
     private List<Edge> edges = new ArrayList<Edge>();
-    private List<AlgorithmStep> steps = new LinkedList<AlgorithmStep>();
+    private LinkedList<AlgorithmStep> steps = new LinkedList<AlgorithmStep>();
 
     public Graph() {
 
@@ -184,7 +189,7 @@ public class Graph {
         return null;
     }
 
-    public Integer [] findAllDistances(int vertexIdx) {
+    public Integer [] findAllDistances(int vertexIdx, boolean stepsRecording) {
 
         Integer distances [] = new Integer[getNumOfVertices()];
         boolean visited [] = new boolean[getNumOfVertices()];
@@ -196,33 +201,58 @@ public class Graph {
 
         distances[vertexIdx] = 0;
         visited[vertexIdx] = true;
+        if(stepsRecording) {
+            steps.add(new AlgorithmStep(AlgorithmCommand.SET_ALL_INF));
+            steps.add(new AlgorithmStep(vertexes.get(vertexIdx), String.valueOf(0), AlgorithmCommand.MAKE_SPECIAL));
+        }
 
         LinkedList<Integer> list = new LinkedList<Integer>();
         list.add(vertexIdx);
 
         while (list.size() > 0) {
             int vertex = list.poll();
+            if(stepsRecording) {
+                steps.add(new AlgorithmStep(vertexes.get(vertex)));
+            }
             for(int nextVertex = 0; nextVertex < getNumOfVertices(); ++nextVertex) {
                 if(matrix[vertex][nextVertex] > 0) {
                     int newDistance = distances[vertex] + matrix[vertex][nextVertex];
+                    if(stepsRecording) {
+                        Edge edge = isConnects(vertexes.get(vertex), vertexes.get(nextVertex));
+                        steps.add(new AlgorithmStep(edge));
+                    }
                     if (newDistance < distances[nextVertex]) {
                         distances[nextVertex] = newDistance;
+                        if(stepsRecording) {
+                            steps.add(new AlgorithmStep(vertexes.get(nextVertex), String.valueOf(newDistance),
+                                    AlgorithmCommand.DO_NOT_VISIT));
+                        }
                     }
                     if(!visited[nextVertex]) {
                         list.add(nextVertex);
                         visited[nextVertex] = true;
+                        if(stepsRecording) {
+                            steps.add(new AlgorithmStep(vertexes.get(nextVertex), AlgorithmCommand.MARK));
+                        }
                     }
                 }
             }
+
+            if(stepsRecording) {
+                steps.add(new AlgorithmStep(vertexes.get(vertex), AlgorithmCommand.INACTIVATE));
+            }
+        }
+
+        if(stepsRecording) {
+            steps.add(new AlgorithmStep(AlgorithmCommand.RESET_ALL));
         }
 
         return distances;
     }
 
-    public Integer findEccentricity(int vertexIdx) {
+    public Integer findEccentricity(int vertexIdx, boolean stepsRecording) {
 
-        Integer distances [] = findAllDistances(vertexIdx);
-
+        Integer distances [] = findAllDistances(vertexIdx, stepsRecording);
         Integer eccentricity = 0;
 
         for(Integer distance : distances) {
@@ -234,13 +264,13 @@ public class Graph {
         return eccentricity;
     }
 
-    public List<Integer> findGraphCenter() {
+    public List<Integer> findGraphCenter(boolean stepsRecording) {
         Integer eccentricities [] = new Integer[getNumOfVertices()];
         List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
         Integer radius = Integer.MAX_VALUE;
 
         for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
-            eccentricities[vertexIdx] = findEccentricity(vertexIdx);
+            eccentricities[vertexIdx] = findEccentricity(vertexIdx, stepsRecording);
             if(eccentricities[vertexIdx] < radius) {
                 radius = eccentricities[vertexIdx];
             }
@@ -249,10 +279,45 @@ public class Graph {
         for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
             if(eccentricities[vertexIdx] == radius) {
                 centralVerticesIdxs.add(vertexIdx);
+                if(stepsRecording) {
+                    steps.add(new AlgorithmStep(vertexes.get(vertexIdx), AlgorithmCommand.MAKE_SPECIAL));
+                }
             }
         }
 
         return centralVerticesIdxs;
+    }
+
+    public List<Integer> findGraphCenterVisualised() {
+
+        steps.clear();
+        List<Integer> center = findGraphCenter(true);
+        visualiseAlgorithm();
+        return center;
+
+    }
+
+    public void visualiseAlgorithm() {
+
+        int additionalTime = 100;
+        int timeInMs = additionalTime;
+
+        System.out.println(steps);
+        while(!steps.isEmpty()) {
+
+            AlgorithmStep step = steps.poll();
+            Timeline preStepDelay = new Timeline(new KeyFrame(Duration.millis(timeInMs),
+                    new AlgorithmPreStepPerformer(step)));
+            preStepDelay.play();
+
+            timeInMs += additionalTime;
+
+            Timeline delay = new Timeline(new KeyFrame(Duration.millis(timeInMs),
+                    new AlgorithmStepPerformer(step)));
+            delay.play();
+
+            timeInMs += additionalTime;
+        }
     }
 
     private class AlgorithmStep {
@@ -302,7 +367,80 @@ public class Graph {
         }
 
 
+        public AlgorithmCommand getCommand() {
+            return command;
+        }
+
+        public void setCommand(AlgorithmCommand command) {
+            this.command = command;
+        }
     }
 
-    public enum AlgorithmCommand {NONE, RESET_NAMES, MAKE_SPECIAL, SET_ALL_INACTIVE}
+    private enum AlgorithmCommand {NONE, RESET_ALL, MAKE_SPECIAL, DO_NOT_VISIT, SET_ALL_INF, MARK, INACTIVATE}
+
+    private class AlgorithmPreStepPerformer implements EventHandler<ActionEvent> {
+
+        private AlgorithmStep step;
+
+        public AlgorithmPreStepPerformer(AlgorithmStep step) {
+            this.step = step;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            if(step.getCommand() == AlgorithmCommand.NONE){
+                step.getSource().getView().setActivity(true);
+            }
+            else if(step.getCommand() == AlgorithmCommand.MAKE_SPECIAL) {
+                step.getSource().getView().setExceptional(true);
+            }
+        }
+    }
+
+    private class AlgorithmStepPerformer implements EventHandler<ActionEvent> {
+
+        private AlgorithmStep step;
+
+        public AlgorithmStepPerformer(AlgorithmStep step) {
+            this.step = step;
+        }
+
+        @Override
+        public void handle(ActionEvent event) {
+            if(step.getCommand() == AlgorithmCommand.RESET_ALL) {
+                for(Vertex vertex : vertexes) {
+                    vertex.getView().resetName();
+                    vertex.getView().setExceptional(false);
+                    vertex.getView().unmark();
+                    vertex.getView().setActivity(false);
+                }
+            }
+            else if(step.getCommand() == AlgorithmCommand.SET_ALL_INF) {
+                for(Vertex vertex : vertexes) {
+                    vertex.getView().setName("INF");
+                }
+            }
+            else {
+                if(step.getValue() != null) {
+                    step.getSource().getView().setName(step.getValue());
+                }
+                if(step.getSource() != null) {
+                    if(step.getSource().getClass() == Edge.class) {
+                        step.getSource().getView().setActivity(false);
+                    }
+                    else if(step.getCommand() == AlgorithmCommand.INACTIVATE) {
+                        if(step.getSource().getView().isExceptional()) {
+                            step.getSource().getView().setExceptional(true);
+                        }
+                        else {
+                            step.getSource().getView().setActivity(false);
+                        }
+                    }
+                    else if(step.getCommand() == AlgorithmCommand.MARK) {
+                        step.getSource().getView().mark();
+                    }
+                }
+            }
+        }
+    }
 }
