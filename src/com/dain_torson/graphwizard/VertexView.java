@@ -6,7 +6,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
-public class VertexView {
+public class VertexView implements ElementView{
 
     static private final int margin = 30;
     static private final int radius = 10;

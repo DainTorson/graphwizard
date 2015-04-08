@@ -1,6 +1,6 @@
 package com.dain_torson.graphwizard;
 
-public class Vertex {
+public class Vertex implements Element{
 
     private String value = "";
     private VertexView view;
@@ -40,11 +40,15 @@ public class Vertex {
     }
 
     public void draw() {
-        this.view.draw();
+        try {
+            view.draw();
+        }
+        catch (NullPointerException except) {
+            System.out.println("Can't draw vertex with value: " + this.value + ". VertexView instance is needed.");
+        }
     }
 
     public void delete() {
         this.view.delete();
-        //this.view = null;
     }
 }

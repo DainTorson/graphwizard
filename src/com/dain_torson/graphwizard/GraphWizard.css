@@ -39,6 +39,11 @@ and open the template in the editor.
     -fx-opacity: 0.5;
 }
 
+.edgeExceptional{
+    -fx-strokeWidth: 0;
+    -fx-fill: yellow;
+}
+
 .ghostEdge{
     -fx-stroke: darkblue;
 }

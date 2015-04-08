@@ -10,6 +10,7 @@ public class Graph {
 
     private List<Vertex> vertexes = new ArrayList<Vertex>();
     private List<Edge> edges = new ArrayList<Edge>();
+    private List<AlgorithmStep> steps = new LinkedList<AlgorithmStep>();
 
     public Graph() {
 
@@ -191,22 +192,6 @@ public class Graph {
 
         for(int idx = 0; idx < getNumOfVertices(); ++idx) {
             distances[idx] = Integer.MAX_VALUE;
-
-            try {
-                vertexes.get(idx).getView().setActivity(false);
-                vertexes.get(idx).getView().setName("INF");
-            }
-            catch (NullPointerException exception) {
-                System.out.println("No view avalible");
-            }
-        }
-
-        try {
-            vertexes.get(vertexIdx).getView().setExceptional();
-            vertexes.get(vertexIdx).getView().setName("0");
-        }
-        catch (NullPointerException exception) {
-            System.out.println("No view avalible");
         }
 
         distances[vertexIdx] = 0;
@@ -219,41 +204,13 @@ public class Graph {
             int vertex = list.poll();
             for(int nextVertex = 0; nextVertex < getNumOfVertices(); ++nextVertex) {
                 if(matrix[vertex][nextVertex] > 0) {
-                    /*try {
-                        Edge current = isConnects(vertexes.get(vertex), vertexes.get(nextVertex));
-                        current.getView().setActivity(true);
-                        try {
-                            Thread.sleep(1000);
-                        } catch(InterruptedException exception) {
-                            Thread.currentThread().interrupt();
-                        }
-                        current.getView().setActivity(false);
-                    }
-                    catch (NullPointerException exception) {
-                        System.out.println("No view avalible");
-                    }
-*/
                     int newDistance = distances[vertex] + matrix[vertex][nextVertex];
                     if (newDistance < distances[nextVertex]) {
                         distances[nextVertex] = newDistance;
-                        try {
-                            vertexes.get(nextVertex).getView().setName(String.valueOf(newDistance));
-                        }
-                        catch (NullPointerException exception) {
-                            System.out.println("No view avalible");
-                        }
                     }
                     if(!visited[nextVertex]) {
                         list.add(nextVertex);
                         visited[nextVertex] = true;
-                        try {
-                            Vertex temp = vertexes.get(nextVertex);
-                            temp.getView().setActivity(true);
-                            temp.getView().setActivity(false);
-                        }
-                        catch (NullPointerException exception) {
-                            System.out.println("No view avalible");
-                        }
                     }
                 }
             }
@@ -297,4 +254,55 @@ public class Graph {
 
         return centralVerticesIdxs;
     }
+
+    private class AlgorithmStep {
+
+        private Element source;
+        private String value;
+        private AlgorithmCommand command = AlgorithmCommand.NONE;
+
+        public AlgorithmStep(Element element) {
+            this.source = element;
+        }
+
+        public AlgorithmStep(Element element, AlgorithmCommand command) {
+            this.source = element;
+            this.command = command;
+        }
+
+        public AlgorithmStep(Element element, String value) {
+            this.source = element;
+            this.value = value;
+        }
+
+        public AlgorithmStep(Element element, String value, AlgorithmCommand command) {
+            this.source = element;
+            this.value = value;
+            this.command = command;
+        }
+
+        public AlgorithmStep(AlgorithmCommand command) {
+            this.command = command;
+        }
+
+        public Element getSource() {
+            return source;
+        }
+
+        public void setSource(Element source) {
+            this.source = source;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+
+    }
+
+    public enum AlgorithmCommand {NONE, RESET_NAMES, MAKE_SPECIAL, SET_ALL_INACTIVE}
 }

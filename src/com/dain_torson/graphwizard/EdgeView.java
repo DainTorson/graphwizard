@@ -6,7 +6,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polygon;
 
-public class EdgeView {
+public class EdgeView implements ElementView{
 
     private static double width = 8;
 
@@ -14,6 +14,7 @@ public class EdgeView {
     private VertexView secondVertex;
     private Polygon polygon = new Polygon();
     private Label label;
+    private String name;
     private DrawSpace parentNode;
     private Edge edge;
     private boolean isActive = false;
@@ -23,7 +24,8 @@ public class EdgeView {
         this.secondVertex = end;
         this.edge = edge;
         this.parentNode = pNode;
-        this.label = new Label(String.valueOf(edge.getValue()));
+        this.name = String.valueOf(edge.getValue());
+        this.label = new Label(name);
         firstVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
         secondVertex.getCircle().addEventFilter(VertexEvent.VERTEX_RELOCATED, new CircleRelocHandler());
 
@@ -136,6 +138,20 @@ public class EdgeView {
         return polygon;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        label.setText(name);
+    }
+
+    public void resetName() {
+        name = String.valueOf(edge.getValue());
+        label.setText(name);
+    }
+
     public boolean getActivity() {
         return  isActive;
     }
@@ -149,6 +165,12 @@ public class EdgeView {
             this.polygon.getStyleClass().clear();
             this.polygon.getStyleClass().add("edgeInactive");
         }
+    }
+
+    public void setExceptional() {
+        isActive = false;
+        this.polygon.getStyleClass().clear();
+        this.polygon.getStyleClass().add("edgeExceptional");
     }
 
     public void delete() {

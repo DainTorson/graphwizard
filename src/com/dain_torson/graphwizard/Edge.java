@@ -1,6 +1,6 @@
 package com.dain_torson.graphwizard;
 
-public class Edge {
+public class Edge implements Element{
 
     private Vertex firstVertex;
     private Vertex secondVertex;
