@@ -1,7 +1,6 @@
 package com.dain_torson.graphwizard;
 
 
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.geometry.Side;
 import javafx.scene.input.KeyCode;
@@ -35,7 +34,8 @@ public class DrawSpace extends Pane {
         this.addEventFilter(MouseEvent.MOUSE_PRESSED, new DefaultOperationHandler(this));
         this.addEventFilter(MouseEvent.MOUSE_MOVED, new EdgeDrawHandler());
         primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new DeleteKeyHandler());
-        primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new EscapeKeyHandler());
+        primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, new EscapeKeyHandler(this));
+        this.getStyleClass().add("drawspace");
 
     }
 
@@ -173,7 +173,6 @@ public class DrawSpace extends Pane {
         @Override
         public void handle(MouseEvent event) {
             deselectAll();
-            System.out.println(event.getSceneX());
         }
     }
 
@@ -233,9 +232,16 @@ public class DrawSpace extends Pane {
 
     private class EscapeKeyHandler implements EventHandler<KeyEvent> {
 
+        private DrawSpace drawSpace;
+
+        public EscapeKeyHandler(DrawSpace drawSpace) {
+            this.drawSpace = drawSpace;
+        }
+
         @Override
         public void handle(KeyEvent event) {
             if(event.getCode() == KeyCode.ESCAPE) {
+                drawSpace.fireEvent(new DrawSpaceEvent(DrawSpaceEvent.ESC_PRESSED));
                 if (edgeDrawContext.isDrawing) {
                     edgeDrawContext.isDrawing = false;
                     ghostEdge.hide();
@@ -283,7 +289,7 @@ public class DrawSpace extends Pane {
         }
     }
 
-    public enum OperationType {DEFAULT, VERTEX, EDGE, ORIENTED_EDGE}
+    public enum OperationType {DEFAULT, VERTEX, EDGE, ORIENTED_EDGE, IMMUTABLE}
 
     private class EdgeDrawContext {
 

@@ -3,6 +3,7 @@ package com.dain_torson.graphwizard;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Duration;
@@ -16,6 +17,8 @@ public class Graph {
     private List<Vertex> vertexes = new ArrayList<Vertex>();
     private List<Edge> edges = new ArrayList<Edge>();
     private LinkedList<AlgorithmStep> steps = new LinkedList<AlgorithmStep>();
+    private Timeline timeline = new Timeline();
+    private DrawSpace drawSpace;
 
     public Graph() {
 
@@ -285,39 +288,73 @@ public class Graph {
             }
         }
 
+        String outputMsg = "Graph center is: ";
+        for(Integer idx : centralVerticesIdxs) {
+            outputMsg += String.valueOf(idx) + " ";
+        }
+
+        steps.add(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE, outputMsg));
+
         return centralVerticesIdxs;
     }
 
-    public List<Integer> findGraphCenterVisualised() {
+    public List<Integer> findGraphCenterVisualised(int speed) {
 
         steps.clear();
         List<Integer> center = findGraphCenter(true);
-        visualiseAlgorithm();
+        visualiseAlgorithm(speed);
         return center;
 
     }
 
-    public void visualiseAlgorithm() {
+    public void visualiseAlgorithm(int speed) {
 
-        int additionalTime = 100;
-        int timeInMs = additionalTime;
+        int additionalTime = 100*speed;
+        int delay = additionalTime;
 
-        System.out.println(steps);
+        try {
+            drawSpace.setOperationType(DrawSpace.OperationType.IMMUTABLE);
+        }catch (NullPointerException exception) {
+            System.out.println("Drawspace doesn't exist");
+            Platform.exit();
+        }
+
         while(!steps.isEmpty()) {
 
             AlgorithmStep step = steps.poll();
-            Timeline preStepDelay = new Timeline(new KeyFrame(Duration.millis(timeInMs),
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay),
                     new AlgorithmPreStepPerformer(step)));
-            preStepDelay.play();
 
-            timeInMs += additionalTime;
+            delay += additionalTime;
 
-            Timeline delay = new Timeline(new KeyFrame(Duration.millis(timeInMs),
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay),
                     new AlgorithmStepPerformer(step)));
-            delay.play();
 
-            timeInMs += additionalTime;
+            delay += additionalTime;
         }
+
+        timeline.play();
+
+    }
+
+    public DrawSpace getDrawSpace() {
+        return drawSpace;
+    }
+
+    public void setDrawSpace(DrawSpace drawSpace) {
+        this.drawSpace = drawSpace;
+        this.drawSpace.addEventFilter(DrawSpaceEvent.ESC_PRESSED, new EventHandler<DrawSpaceEvent>() {
+            @Override
+            public void handle(DrawSpaceEvent event) {
+                timeline.stop();
+                timeline.getKeyFrames().clear();
+                timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100),
+                        new AlgorithmStepPerformer(new AlgorithmStep(AlgorithmCommand.RESET_ALL))));
+                timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100),
+                        new AlgorithmStepPerformer(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE))));
+                timeline.play();
+            }
+        });
     }
 
     private class AlgorithmStep {
@@ -349,6 +386,10 @@ public class Graph {
         public AlgorithmStep(AlgorithmCommand command) {
             this.command = command;
         }
+        public AlgorithmStep(AlgorithmCommand command, String message) {
+            this.command = command;
+            this.value = message;
+        }
 
         public Element getSource() {
             return source;
@@ -376,7 +417,8 @@ public class Graph {
         }
     }
 
-    private enum AlgorithmCommand {NONE, RESET_ALL, MAKE_SPECIAL, DO_NOT_VISIT, SET_ALL_INF, MARK, INACTIVATE}
+    private enum AlgorithmCommand {NONE, RESET_ALL, MAKE_SPECIAL,
+        DO_NOT_VISIT, SET_ALL_INF, MARK, INACTIVATE, RESET_DRAWSPACE}
 
     private class AlgorithmPreStepPerformer implements EventHandler<ActionEvent> {
 
@@ -418,6 +460,13 @@ public class Graph {
             else if(step.getCommand() == AlgorithmCommand.SET_ALL_INF) {
                 for(Vertex vertex : vertexes) {
                     vertex.getView().setName("INF");
+                }
+            }
+            else if(step.getCommand() == AlgorithmCommand.RESET_DRAWSPACE) {
+                drawSpace.setOperationType(DrawSpace.OperationType.DEFAULT);
+                if(step.getValue() != null) {
+                    OutputMsgBox msgBox = new OutputMsgBox(step.getValue());
+                    msgBox.show();
                 }
             }
             else {

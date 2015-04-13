@@ -102,10 +102,10 @@ public class MenuFile extends Menu {
                     }
                 }
                 catch (FileNotFoundException exception) {
-                    System.out.println(exception.getMessage());
+                    System.out.println("Error while loading file");
                 }
                 catch (IOException exception) {
-                    System.out.println(exception.getMessage());
+                    System.out.println("Error while loading file");
                 }
             }
 
@@ -137,47 +137,27 @@ public class MenuFile extends Menu {
                 try {
                     DataOutputStream out = new DataOutputStream(new FileOutputStream(file));
                     out.writeInt(size);
-                    for(int row = 0; row < size; ++row) {
-                        for(int col = 0; col < size; ++col) {
+                    for (int row = 0; row < size; ++row) {
+                        for (int col = 0; col < size; ++col) {
                             out.writeInt(matrix[row][col]);
                         }
                     }
 
-                    for(int vertIdx = 0; vertIdx < size; ++vertIdx) {
+                    for (int vertIdx = 0; vertIdx < size; ++vertIdx) {
                         out.writeDouble(cooordinates[vertIdx][0]);
                         out.writeDouble(cooordinates[vertIdx][1]);
                     }
 
-                    for(int vertIdx = 0; vertIdx < size; ++vertIdx) {
+                    for (int vertIdx = 0; vertIdx < size; ++vertIdx) {
                         out.writeUTF(values[vertIdx]);
                     }
-                }
-                catch (FileNotFoundException exception) {
-                    System.out.println(exception.getMessage());
-                }
-                catch (IOException exception) {
-                    System.out.println(exception.getMessage());
+                } catch (FileNotFoundException exception) {
+                    System.out.println("Error while saving file");
+                } catch (IOException exception) {
+                    System.out.println("Error while saving file");
                 }
 
             }
-
-            for(int i = 0; i < graph.getNumOfVertices(); ++i) {
-                for(int j = 0; j < graph.getNumOfVertices(); ++j)
-                    System.out.print(String.valueOf(matrix[i][j]) + " ");
-                System.out.println();
-            }
-
-            System.out.println();
-
-            for(int i = 0; i < graph.getNumOfVertices(); ++i) {
-                System.out.println(String.valueOf(cooordinates[i][0]) + " " +
-                String.valueOf(cooordinates[i][1]));
-            }
-
-            for(int i = 0; i < graph.getNumOfVertices(); ++i) {
-                System.out.println(values[i]);
-            }
-
         }
     }
 

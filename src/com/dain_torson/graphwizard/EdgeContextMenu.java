@@ -5,9 +5,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 
-/**
- * Created by Ales on 29.03.2015.
- */
 public class EdgeContextMenu extends ContextMenu {
 
     private Edge source;
@@ -16,19 +13,9 @@ public class EdgeContextMenu extends ContextMenu {
     public EdgeContextMenu(Graph sourceGraph) {
 
         this.graph = sourceGraph;
-        MenuItem viewMenuItem = new MenuItem("View weight");
         MenuItem renameMenuItem = new MenuItem("Set weight");
         MenuItem deleteMenuItem = new MenuItem("Delete");
 
-        viewMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if(source != null) {
-                    EdgeOutputMsgBox edgeOutputMsgBox = new EdgeOutputMsgBox(source);
-                    edgeOutputMsgBox.show();
-                }
-            }
-        });
         renameMenuItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -40,7 +27,7 @@ public class EdgeContextMenu extends ContextMenu {
         });
         deleteMenuItem.setOnAction(new DeleteItemHandler());
 
-        this.getItems().addAll(viewMenuItem, renameMenuItem, deleteMenuItem);
+        this.getItems().addAll(renameMenuItem, deleteMenuItem);
     }
 
     public Edge getSource() {

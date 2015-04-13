@@ -11,22 +11,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
-/**
- * Created by Ales on 29.03.2015.
- */
+
 public class InputMsgBox extends Stage{
 
     private Button okButton;
     private Button cancelButton;
     private TextField textField;
     private Label label;
+    protected String input;
 
-    public InputMsgBox() {
+    public InputMsgBox(String message) {
 
         GridPane gridPane = new GridPane();
 
-        label = new Label("New value: ");
+        label = new Label(message);
         textField = new TextField();
         okButton = new Button("Ok");
         cancelButton = new Button("Cancel");
@@ -40,9 +40,17 @@ public class InputMsgBox extends Stage{
         gridPane.setVgap(10);
         gridPane.setAlignment(Pos.CENTER);
 
+        okButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                input = getText();
+                close();
+            }
+        });
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                input = "canceled";
                 close();
             }
         });
@@ -53,16 +61,34 @@ public class InputMsgBox extends Stage{
         this.setScene(scene);
     }
 
-    Button getOkButton() {
+    public Button getOkButton() {
         return okButton;
     }
 
-    Button getCancelButton() {
+    public void setMessage(String message) {
+        label.setText(message);
+    }
+
+    public void setText(String text) {
+        textField.setText(text);
+    }
+
+    public Button getCancelButton() {
         return cancelButton;
     }
 
-    String getText() {
+    protected String getText() {
         return textField.getText();
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    @Override
+    public void close(){
+        fireEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSE_REQUEST));
+        super.close();
     }
 }
 

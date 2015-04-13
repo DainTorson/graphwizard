@@ -10,19 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-/**
- * Created by Ales on 30.03.2015.
- */
 public class OutputMsgBox extends Stage {
 
     private Button okButton;
     private Label label;
 
-    public OutputMsgBox() {
+    public OutputMsgBox(String message) {
 
         GridPane gridPane = new GridPane();
 
-        label = new Label("Hey, babe! Wanna dance?");
+        label = new Label(message);
         okButton = new Button("Ok");
 
         okButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -39,7 +36,7 @@ public class OutputMsgBox extends Stage {
         gridPane.setVgap(10);
         gridPane.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(gridPane, 200, 150);
+        Scene scene = new Scene(gridPane, 250, 150);
         this.setTitle("Message Box");
         this.setScene(scene);
     }

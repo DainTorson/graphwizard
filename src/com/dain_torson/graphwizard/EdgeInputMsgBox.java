@@ -3,16 +3,14 @@ package com.dain_torson.graphwizard;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-/**
- * Created by Ales on 30.03.2015.
- */
 public class EdgeInputMsgBox extends InputMsgBox {
 
     private Edge source;
 
     public EdgeInputMsgBox(Edge edge) {
+        super("Enter new weight: ");
         this.source = edge;
-        this.setTitle("New weight: ");
+        this.setTitle("New weight");
 
         this.getOkButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override

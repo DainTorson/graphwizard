@@ -228,16 +228,18 @@ public class VertexView implements ElementView{
 
         @Override
         public void handle(MouseEvent event) {
-            double newX = labelContext.prevX - labelContext.prevMouseX + event.getX();
-            double newY = labelContext.prevY - labelContext.prevMouseY + event.getY();
+            if(parentNode.getOperationType() == DrawSpace.OperationType.DEFAULT) {
+                double newX = labelContext.prevX - labelContext.prevMouseX + event.getX();
+                double newY = labelContext.prevY - labelContext.prevMouseY + event.getY();
 
-            if (newX + label.getLayoutX() > 0 && newY + label.getLayoutY() > 0
-                    && newX + label.getLayoutX() < parentNode.getWidth()
-                    && newY + label.getLayoutY() < parentNode.getHeight()) {
+                if (newX + label.getLayoutX() > 0 && newY + label.getLayoutY() > 0
+                        && newX + label.getLayoutX() < parentNode.getWidth()
+                        && newY + label.getLayoutY() < parentNode.getHeight()) {
 
-                label.setTranslateX(newX);
-                label.setTranslateY(newY);
+                    label.setTranslateX(newX);
+                    label.setTranslateY(newY);
 
+                }
             }
         }
     }

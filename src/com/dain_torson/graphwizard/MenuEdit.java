@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.stage.WindowEvent;
 
 import java.util.List;
 
@@ -24,17 +25,56 @@ public class MenuEdit extends Menu {
         this.source = graph;
         this.setText("Edit");
 
-        MenuItem calculateItem = new MenuItem("Calculate");
-        this.getItems().addAll(calculateItem);
+        MenuItem calculateItem = new MenuItem("Graph center");
+        Menu menu = new Menu("Calculate");
+        menu.getItems().add(calculateItem);
+        this.getItems().add(menu);
 
         calculateItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                List<Integer> list = source.findGraphCenterVisualised();
 
-                for(Integer value : list) {
-                    System.out.println(value);
-                }
+                final YesNoMsgBox msgBox = new YesNoMsgBox("Do you want to visualise algorithm?");
+                msgBox.show();
+                msgBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent event) {
+                        if (msgBox.getValue()) {
+
+                            final InputInRangeMsgBox inRangeMsgBox =
+                                    new InputInRangeMsgBox("Visualisation speed(1 - 10): ", 1, 10);
+                            inRangeMsgBox.setText(String.valueOf(5));
+                            inRangeMsgBox.show();
+                            inRangeMsgBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                                @Override
+                                public void handle(WindowEvent event) {
+                                    int speed;
+                                    try {
+                                        speed = Integer.valueOf(inRangeMsgBox.getInput());
+                                        System.out.println(speed);
+                                    }
+                                    catch (NumberFormatException exception) {
+                                        return;
+                                    }
+                                    speed = 11 - speed;
+                                    System.out.println(speed);
+                                    source.findGraphCenterVisualised(speed);
+
+                            }
+                            });
+                        }
+                        else {
+                            List<Integer> list = source.findGraphCenter(false);
+
+                            String message = "Graph center is: ";
+                            for (Integer value : list) {
+                                message += String.valueOf(value) + " ";
+                            }
+                            OutputMsgBox outputMsgBox = new OutputMsgBox(message);
+                            outputMsgBox.show();
+                        }
+                    }
+                });
             }
         });
     }

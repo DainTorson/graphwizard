@@ -21,14 +21,18 @@ public class ToolBar extends VBox{
     public ToolBar(DrawSpace drawSpace)
     {
         this.getStyleClass().add("toolbar");
-        Button cursorButton = new Button("C");
+        Button cursorButton = new Button();
         cursorButton.setPrefSize(buttonSize, buttonSize);
-        Button vertexButton = new Button("V");
+        cursorButton.getStyleClass().addAll("button", "cursorButton");
+        Button vertexButton = new Button();
         vertexButton.setPrefSize(buttonSize, buttonSize);
-        Button edgeButton = new Button("E");
+        vertexButton.getStyleClass().addAll("button", "vertexButton");
+        Button edgeButton = new Button();
         edgeButton.setPrefSize(buttonSize, buttonSize);
-        Button orientedButton = new Button("OE");
+        edgeButton.getStyleClass().addAll("button", "edgeButton");
+        Button orientedButton = new Button();
         orientedButton.setPrefSize(buttonSize, buttonSize);
+        orientedButton.getStyleClass().addAll("button", "orEdgeButton");
 
         cursorButton.setOnAction(new CursorButtonHandler(drawSpace));
         vertexButton.setOnAction(new VertexButtonHandler(drawSpace));
@@ -49,7 +53,9 @@ public class ToolBar extends VBox{
 
         @Override
         public void handle(ActionEvent event) {
-            drawSpace.setOperationType(DrawSpace.OperationType.DEFAULT);
+            if(drawSpace.getOperationType() != DrawSpace.OperationType.IMMUTABLE) {
+                drawSpace.setOperationType(DrawSpace.OperationType.DEFAULT);
+            }
 
         }
     }
@@ -64,7 +70,9 @@ public class ToolBar extends VBox{
 
         @Override
         public void handle(ActionEvent event) {
-            drawSpace.setOperationType(DrawSpace.OperationType.VERTEX);
+            if(drawSpace.getOperationType() != DrawSpace.OperationType.IMMUTABLE) {
+                drawSpace.setOperationType(DrawSpace.OperationType.VERTEX);
+            }
 
         }
     }
@@ -79,7 +87,9 @@ public class ToolBar extends VBox{
 
         @Override
         public void handle(ActionEvent event) {
-            drawSpace.setOperationType(DrawSpace.OperationType.EDGE);
+            if(drawSpace.getOperationType() != DrawSpace.OperationType.IMMUTABLE) {
+                drawSpace.setOperationType(DrawSpace.OperationType.EDGE);
+            }
 
         }
     }
@@ -94,7 +104,9 @@ public class ToolBar extends VBox{
 
         @Override
         public void handle(ActionEvent event) {
-            drawSpace.setOperationType(DrawSpace.OperationType.ORIENTED_EDGE);
+            if(drawSpace.getOperationType() != DrawSpace.OperationType.IMMUTABLE) {
+                drawSpace.setOperationType(DrawSpace.OperationType.ORIENTED_EDGE);
+            }
 
         }
     }
