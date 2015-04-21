@@ -9,6 +9,7 @@ package com.dain_torson.graphwizard;
 import com.dain_torson.graphwizard.bars.ToolBar;
 import com.dain_torson.graphwizard.bars.TopMenuBar;
 import com.dain_torson.graphwizard.drawspace.ScrollSpace;
+import com.dain_torson.graphwizard.drawspace.TabSpace;
 import com.dain_torson.graphwizard.graph.Graph;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -26,15 +27,13 @@ public class GraphWizard extends Application {
     public void start(final Stage primaryStage) {
         
         BorderPane root = new BorderPane();
-        Graph graph = new Graph();
-        ScrollSpace scrollSpace = new ScrollSpace(primaryStage, graph);
-        graph.setDrawSpace(scrollSpace.getDrawSpace());
-        TopMenuBar menu = new TopMenuBar(primaryStage, graph, scrollSpace.getDrawSpace());
-        ToolBar toolBar = new ToolBar(scrollSpace.getDrawSpace());
+        TabSpace tabSpace = new TabSpace(primaryStage);
+        TopMenuBar menu = new TopMenuBar(primaryStage, tabSpace.getCurrentGraph(), tabSpace.getCurrentDrawSpace());
+        ToolBar toolBar = new ToolBar(tabSpace.getCurrentDrawSpace());
 
         root.setTop(menu);
         root.setLeft(toolBar);
-        root.setCenter(scrollSpace);
+        root.setCenter(tabSpace);
         
         Scene scene = new Scene(root, 800, 600);
         

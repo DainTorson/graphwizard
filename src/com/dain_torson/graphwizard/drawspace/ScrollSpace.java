@@ -8,7 +8,8 @@ public class ScrollSpace extends ScrollPane{
 
     private DrawSpace drawSpace;
 
-    public ScrollSpace(Stage stage, Graph graph) {
+    public ScrollSpace(Stage stage, Graph graph, DrawTab drawTab) {
+        drawTab.setContent(this);
         drawSpace = new DrawSpace(stage, this, graph);
     }
 
