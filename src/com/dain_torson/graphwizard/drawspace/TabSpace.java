@@ -1,6 +1,8 @@
 package com.dain_torson.graphwizard.drawspace;
 
 import com.dain_torson.graphwizard.graph.Graph;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -9,9 +11,6 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Ales on 19.04.2015.
- */
 public class TabSpace extends TabPane{
 
     private List<DrawTab> tabList = new ArrayList<DrawTab>();
@@ -67,5 +66,13 @@ public class TabSpace extends TabPane{
             }
         }
         return null;
+    }
+
+    private class TabSelectionChangedHandler implements EventHandler<Event> {
+
+        @Override
+        public void handle(Event event) {
+
+        }
     }
 }

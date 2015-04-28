@@ -28,8 +28,8 @@ public class GraphWizard extends Application {
         
         BorderPane root = new BorderPane();
         TabSpace tabSpace = new TabSpace(primaryStage);
-        TopMenuBar menu = new TopMenuBar(primaryStage, tabSpace.getCurrentGraph(), tabSpace.getCurrentDrawSpace());
-        ToolBar toolBar = new ToolBar(tabSpace.getCurrentDrawSpace());
+        TopMenuBar menu = new TopMenuBar(primaryStage, tabSpace);
+        ToolBar toolBar = new ToolBar(tabSpace);
 
         root.setTop(menu);
         root.setLeft(toolBar);
@@ -37,7 +37,7 @@ public class GraphWizard extends Application {
         
         Scene scene = new Scene(root, 800, 600);
         
-        primaryStage.setTitle("Graph Wizard - " + "New Project");
+        primaryStage.setTitle("Graph Wizard");
         primaryStage.setScene(scene);
         scene.getStylesheets().add("assets/css/GraphWizard.css");
         primaryStage.setResizable(false);
