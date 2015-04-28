@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class MenuEdit extends Menu {
 
-    Graph source;
+    private Graph source;
 
     public MenuEdit(Graph graph) {
         this.source = graph;
@@ -81,6 +81,14 @@ public class MenuEdit extends Menu {
                 });
             }
         });
+    }
+
+    public void setSource(Graph source) {
+        this.source = source;
+    }
+
+    public Graph getSource() {
+        return source;
     }
 
 }

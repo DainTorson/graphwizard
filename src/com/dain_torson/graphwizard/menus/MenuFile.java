@@ -23,10 +23,14 @@ import javafx.stage.Stage;
  */
 public class MenuFile extends Menu {
 
-    Stage newStage = new Stage();
+    private Stage sourceStage;
+    private Graph sourceGraph;
+    private DrawSpace sourceSpace;
 
     public MenuFile(Stage stage, Graph graph, DrawSpace drawSpace) {
-        this.newStage = stage;
+        this.sourceStage = stage;
+        this.sourceGraph = graph;
+        this.sourceSpace = drawSpace;
         this.setText("File");
         MenuItem itemNew = new MenuItem("New");
         MenuItem itemOpen = new MenuItem("Open");
@@ -34,11 +38,27 @@ public class MenuFile extends Menu {
         MenuItem itemExit = new MenuItem("Exit");
 
         itemNew.setOnAction(new ItemNewEventHandler(graph));
-        itemOpen.setOnAction(new ItemOpenEventHandler(newStage, graph, drawSpace));
-        itemSave.setOnAction(new ItemSaveEventHandler(newStage, graph));
+        itemOpen.setOnAction(new ItemOpenEventHandler(sourceStage, sourceGraph, sourceSpace));
+        itemSave.setOnAction(new ItemSaveEventHandler(sourceStage, sourceGraph));
         itemExit.setOnAction(new ItemExitEventHandler());
         
         this.getItems().addAll(itemNew, itemOpen, itemSave, itemExit);
+    }
+
+    public Graph getSourceGraph() {
+        return sourceGraph;
+    }
+
+    public void setSourceGraph(Graph sourceGraph) {
+        this.sourceGraph = sourceGraph;
+    }
+
+    public DrawSpace getSourceSpace() {
+        return sourceSpace;
+    }
+
+    public void setSourceSpace(DrawSpace sourceSpace) {
+        this.sourceSpace = sourceSpace;
     }
 
     private class ItemNewEventHandler implements EventHandler<ActionEvent> {
