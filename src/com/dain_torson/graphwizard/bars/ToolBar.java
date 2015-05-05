@@ -21,21 +21,25 @@ public class ToolBar extends VBox{
 
     private static int buttonSize = 40;
     private DrawSpace drawSpace;
+    private Button cursorButton;
+    private Button vertexButton;
+    private Button edgeButton;
+    private Button orientedButton;
 
     public ToolBar(TabSpace tabSpace)
     {
         this.getStyleClass().add("toolbar");
         drawSpace = tabSpace.getCurrentDrawSpace();
-        Button cursorButton = new Button();
+        cursorButton = new Button();
         cursorButton.setPrefSize(buttonSize, buttonSize);
         cursorButton.getStyleClass().addAll("button", "cursorButton");
-        Button vertexButton = new Button();
+        vertexButton = new Button();
         vertexButton.setPrefSize(buttonSize, buttonSize);
         vertexButton.getStyleClass().addAll("button", "vertexButton");
-        Button edgeButton = new Button();
+        edgeButton = new Button();
         edgeButton.setPrefSize(buttonSize, buttonSize);
         edgeButton.getStyleClass().addAll("button", "edgeButton");
-        Button orientedButton = new Button();
+        orientedButton = new Button();
         orientedButton.setPrefSize(buttonSize, buttonSize);
         orientedButton.getStyleClass().addAll("button", "orEdgeButton");
 
@@ -49,10 +53,18 @@ public class ToolBar extends VBox{
     
     }
 
+    private void updateControls() {
+
+        cursorButton.setOnAction(new CursorButtonHandler(drawSpace));
+        vertexButton.setOnAction(new VertexButtonHandler(drawSpace));
+        edgeButton.setOnAction(new EdgeButtonHandler(drawSpace));
+        orientedButton.setOnAction(new OrientedButtonHandler(drawSpace));
+
+    }
+
     private class CursorButtonHandler implements EventHandler<ActionEvent> {
 
         private DrawSpace drawSpace;
-
         public CursorButtonHandler(DrawSpace drawSpace) {
             this.drawSpace = drawSpace;
         }
@@ -122,6 +134,7 @@ public class ToolBar extends VBox{
         @Override
         public void handle(TabSpaceEvent event) {
             drawSpace = event.getSource().getDrawSpace();
+            updateControls();
         }
     }
     

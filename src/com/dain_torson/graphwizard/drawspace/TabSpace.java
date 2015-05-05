@@ -17,7 +17,6 @@ public class TabSpace extends TabPane{
     private Stage stage;
 
     public TabSpace(Stage stage) {
-
         this.stage = stage;
         Graph first = new Graph();
         DrawTab drawTab = new DrawTab(stage, first, this);
@@ -81,7 +80,6 @@ public class TabSpace extends TabPane{
                     break;
                 }
             }
-            System.out.println("Petr lalka");
             fireEvent(new TabSpaceEvent(TabSpaceEvent.TAB_SELECTION_CHANGED, (DrawTab)event.getSource()));
         }
     }

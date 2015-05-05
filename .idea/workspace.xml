@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94e108c0-5cce-4072-9851-26a1c44e4a0f" name="Default" comment="Added algorithm visualisation.">
+    <list default="true" id="94e108c0-5cce-4072-9851-26a1c44e4a0f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/FileEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpaceEvent.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpaceEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawTab.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawTab.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuFile.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java" afterPath="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GraphWizard.iws" />
@@ -38,51 +45,58 @@
       <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3230" max-vertical-offset="7786">
-              <caret line="217" column="61" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToolBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1972">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4104" max-vertical-offset="8891">
+              <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
               <folding>
-                <element signature="e#4091#4092#0" expanded="true" />
-                <element signature="e#4159#4160#0" expanded="true" />
+                <element signature="e#13588#13589#0" expanded="true" />
+                <element signature="e#13615#13616#0" expanded="true" />
+                <element signature="e#13655#13656#0" expanded="true" />
+                <element signature="e#13687#13688#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TabSpaceEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java">
+      <file leaf-file-name="MenuFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="476">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="3298">
+              <caret line="170" column="58" selection-start-line="170" selection-start-column="58" selection-end-line="171" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TabSpace.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java">
+      <file leaf-file-name="MenuEdit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71794873" vertical-offset="838" max-vertical-offset="1445">
-              <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1989">
+              <caret line="48" column="83" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
+              <folding>
+                <element signature="e#1759#1760#0" expanded="true" />
+                <element signature="e#1788#1789#0" expanded="true" />
+                <element signature="e#2015#2016#0" expanded="true" />
+                <element signature="e#2059#2060#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphWizard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8441781" vertical-offset="187" max-vertical-offset="782">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopMenuBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java">
+      <file leaf-file-name="DrawSpace.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="544">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="4896">
+              <caret line="245" column="18" selection-start-line="245" selection-start-column="18" selection-end-line="245" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -102,9 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/graphwizard/Vertex.java" />
-        <option value="$PROJECT_DIR$/src/graphwizard/GraphWizard.java" />
-        <option value="E:/temporary/DraggablePanelsExample/src/draggablepanelsexample/DraggablePanelsExample.java" />
         <option value="C:/Java/jdk1.8.0_31/javafx-src.zip!/javafx/scene/Node.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VXCircle.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/VXLabel.java" />
@@ -144,9 +155,18 @@
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/ElementView.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.css" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/Graph.java" />
-        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java" />
         <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/FileSavedEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/FileEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuFile.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpaceEvent.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawTab.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java" />
       </list>
     </option>
   </component>
@@ -179,6 +199,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -234,7 +255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawspace" />
+              <option name="myItemId" value="menus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -256,13 +277,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bars" />
+              <option name="myItemId" value="graph" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GraphWizard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphwizard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphwizard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawspace" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,24 +318,24 @@
     <property name="dynamic.classpath" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../StudentTable" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="858" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="777" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="183" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="167" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="859" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="778" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
@@ -321,8 +363,14 @@
       <module name="GraphWizard" />
       <envs />
       <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Cover" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -529,38 +577,44 @@
       <option name="project" value="LOCAL" />
       <updated>1428397597378</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="MDI functionality added.&#10;">
+      <created>1430850415091</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1430850415091</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1384" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32647815" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32352942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18051359" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18051359" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32352942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967836" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -611,11 +665,12 @@
     <MESSAGE value="Added context menus." />
     <MESSAGE value="Added graph's center calculation." />
     <MESSAGE value="Added algorithm visualisation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added algorithm visualisation." />
+    <MESSAGE value="MDI functionality added.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="MDI functionality added.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -624,6 +679,52 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3230" max-vertical-offset="7735">
+          <caret line="217" column="61" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1972">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding>
+            <element signature="e#2597#2598#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="476">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1445">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="544">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3230" max-vertical-offset="7786">
@@ -637,8 +738,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1972">
           <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding>
-            <element signature="e#4091#4092#0" expanded="true" />
-            <element signature="e#4159#4160#0" expanded="true" />
+            <element signature="e#2597#2598#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -647,7 +748,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="476">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -671,9 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="918">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -689,9 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="918">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -714,9 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="328" max-vertical-offset="935">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,9 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -749,9 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,9 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -769,9 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,42 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="918">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Java/jdk1.8.0_31/src.zip!/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2168" max-vertical-offset="20349">
           <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4244" max-vertical-offset="4828">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpaceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="765">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,7 +946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -906,52 +956,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/msgboxes/OutputMsgBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1156" max-vertical-offset="7735">
-          <caret line="217" column="61" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1972">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="e#4091#4092#0" expanded="true" />
-            <element signature="e#4159#4160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,10 +970,136 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/ToolBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2854641" vertical-offset="1588" max-vertical-offset="2227">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding>
+            <element signature="e#2597#2598#0" expanded="true" />
+            <element signature="e#2647#2648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_31/javafx-src.zip!/javafx/stage/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321918" vertical-offset="2628" max-vertical-offset="6562">
+          <caret line="212" column="24" selection-start-line="212" selection-start-column="24" selection-end-line="212" selection-end-column="24" />
+          <folding>
+            <element signature="e#7452#7453#0" expanded="false" />
+            <element signature="e#7511#7512#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/FileEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20376712" vertical-offset="0" max-vertical-offset="584">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpaceEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11643836" vertical-offset="0" max-vertical-offset="584">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/TabSpace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71794873" vertical-offset="838" max-vertical-offset="1445">
-          <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+        <state vertical-scroll-proportion="1.775685" vertical-offset="204" max-vertical-offset="1411">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpaceEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26198632" vertical-offset="0" max-vertical-offset="584">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55308217" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+          <folding>
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="e#1973#1974#0" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2182#2183#0" expanded="true" />
+            <element signature="e#2236#2237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/bars/TopMenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69863015" vertical-offset="136" max-vertical-offset="765">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2499" max-vertical-offset="3298">
+          <caret line="170" column="58" selection-start-line="170" selection-start-column="58" selection-end-line="171" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/drawspace/DrawSpace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="4896">
+          <caret line="245" column="18" selection-start-line="245" selection-start-column="18" selection-end-line="245" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4104" max-vertical-offset="8891">
+          <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <folding>
+            <element signature="e#13588#13589#0" expanded="true" />
+            <element signature="e#13615#13616#0" expanded="true" />
+            <element signature="e#13655#13656#0" expanded="true" />
+            <element signature="e#13687#13688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/menus/MenuEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1989">
+          <caret line="48" column="83" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
+          <folding>
+            <element signature="e#1759#1760#0" expanded="true" />
+            <element signature="e#1788#1789#0" expanded="true" />
+            <element signature="e#2015#2016#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dain_torson/graphwizard/GraphWizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8441781" vertical-offset="187" max-vertical-offset="782">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>

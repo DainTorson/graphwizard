@@ -26,23 +26,32 @@ public class MenuFile extends Menu {
     private Stage sourceStage;
     private Graph sourceGraph;
     private DrawSpace sourceSpace;
+    private MenuItem itemNew;
+    private MenuItem itemOpen;
+    MenuItem itemSave;
 
     public MenuFile(Stage stage, Graph graph, DrawSpace drawSpace) {
         this.sourceStage = stage;
         this.sourceGraph = graph;
         this.sourceSpace = drawSpace;
         this.setText("File");
-        MenuItem itemNew = new MenuItem("New");
-        MenuItem itemOpen = new MenuItem("Open");
-        MenuItem itemSave = new MenuItem("Save");
+        itemNew = new MenuItem("New");
+        itemOpen = new MenuItem("Open");
+        itemSave = new MenuItem("Save");
         MenuItem itemExit = new MenuItem("Exit");
 
-        itemNew.setOnAction(new ItemNewEventHandler(graph));
+        itemNew.setOnAction(new ItemNewEventHandler(sourceGraph));
         itemOpen.setOnAction(new ItemOpenEventHandler(sourceStage, sourceGraph, sourceSpace));
         itemSave.setOnAction(new ItemSaveEventHandler(sourceStage, sourceGraph));
         itemExit.setOnAction(new ItemExitEventHandler());
         
         this.getItems().addAll(itemNew, itemOpen, itemSave, itemExit);
+    }
+
+    public void update() {
+        itemNew.setOnAction(new ItemNewEventHandler(sourceGraph));
+        itemOpen.setOnAction(new ItemOpenEventHandler(sourceStage, sourceGraph, sourceSpace));
+        itemSave.setOnAction(new ItemSaveEventHandler(sourceStage, sourceGraph));
     }
 
     public Graph getSourceGraph() {
@@ -51,6 +60,7 @@ public class MenuFile extends Menu {
 
     public void setSourceGraph(Graph sourceGraph) {
         this.sourceGraph = sourceGraph;
+        update();
     }
 
     public DrawSpace getSourceSpace() {
@@ -59,6 +69,7 @@ public class MenuFile extends Menu {
 
     public void setSourceSpace(DrawSpace sourceSpace) {
         this.sourceSpace = sourceSpace;
+        update();
     }
 
     private class ItemNewEventHandler implements EventHandler<ActionEvent> {
@@ -122,6 +133,10 @@ public class MenuFile extends Menu {
                         graph.reset(matrix, values, size);
                         drawSpace.reset(graph, cooordinates);
                     }
+
+                    String [] parts = file.getName().split("\\.");
+                    graph.setName(parts[0]);
+                    graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_OPENED, file));
                 }
                 catch (FileNotFoundException exception) {
                     System.out.println("Error while loading file");
@@ -130,7 +145,6 @@ public class MenuFile extends Menu {
                     System.out.println("Error while loading file");
                 }
             }
-
         }
     }
 
@@ -173,12 +187,15 @@ public class MenuFile extends Menu {
                     for (int vertIdx = 0; vertIdx < size; ++vertIdx) {
                         out.writeUTF(values[vertIdx]);
                     }
+
+                    String [] parts = file.getName().split("\\.");
+                    graph.setName(parts[0]);
+                    graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_SAVED, file));
                 } catch (FileNotFoundException exception) {
                     System.out.println("Error while saving file");
                 } catch (IOException exception) {
                     System.out.println("Error while saving file");
                 }
-
             }
         }
     }

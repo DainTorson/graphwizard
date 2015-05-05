@@ -25,6 +25,7 @@ public class Graph {
     private LinkedList<AlgorithmStep> steps = new LinkedList<AlgorithmStep>();
     private Timeline timeline = new Timeline();
     private DrawSpace drawSpace;
+    private String name = "NewGraph";
 
     public Graph() {
 
@@ -49,10 +50,6 @@ public class Graph {
             for(Edge edge : edgesToDelete) {
                 deleteEdge(edge);
             }
-
-            System.out.println("Edges " + String.valueOf(edges.size()));
-
-
         }
     }
 
@@ -273,7 +270,50 @@ public class Graph {
         return eccentricity;
     }
 
+    public int findRadius(boolean stepsRecording) {
+
+        Integer eccentricities [] = new Integer[getNumOfVertices()];
+        List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
+        Integer radius = Integer.MAX_VALUE;
+
+        for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
+            eccentricities[vertexIdx] = findEccentricity(vertexIdx, stepsRecording);
+            if(eccentricities[vertexIdx] < radius) {
+                radius = eccentricities[vertexIdx];
+            }
+        }
+
+        if(stepsRecording) {
+            String outputMsg = "Graph radius is: " + String.valueOf(radius);
+            steps.add(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE, outputMsg));
+        }
+
+        return radius;
+    }
+
+    public int findDiameter(boolean stepsRecording) {
+
+        Integer eccentricities [] = new Integer[getNumOfVertices()];
+        List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
+        Integer diameter = 0;
+
+        for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
+            eccentricities[vertexIdx] = findEccentricity(vertexIdx, stepsRecording);
+            if(eccentricities[vertexIdx] > diameter) {
+                diameter = eccentricities[vertexIdx];
+            }
+        }
+
+        if(stepsRecording) {
+            String outputMsg = "Graph diameter is: " + String.valueOf(diameter);
+            steps.add(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE, outputMsg));
+        }
+
+        return diameter;
+    }
+
     public List<Integer> findGraphCenter(boolean stepsRecording) {
+
         Integer eccentricities [] = new Integer[getNumOfVertices()];
         List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
         Integer radius = Integer.MAX_VALUE;
@@ -294,14 +334,34 @@ public class Graph {
             }
         }
 
-        String outputMsg = "Graph center is: ";
-        for(Integer idx : centralVerticesIdxs) {
-            outputMsg += String.valueOf(idx) + " ";
+        if(stepsRecording) {
+            String outputMsg = "Graph center is: ";
+            for (Integer idx : centralVerticesIdxs) {
+                outputMsg += String.valueOf(idx) + " ";
+            }
+
+            steps.add(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE, outputMsg));
         }
 
-        steps.add(new AlgorithmStep(AlgorithmCommand.RESET_DRAWSPACE, outputMsg));
-
         return centralVerticesIdxs;
+    }
+
+    public int findRadiusVisualised(int speed) {
+
+        steps.clear();
+        int radius = findRadius(true);
+        visualiseAlgorithm(speed);
+        return radius;
+
+    }
+
+    public int findDiameterVisualised(int speed) {
+
+        steps.clear();
+        int diameter = findDiameter(true);
+        visualiseAlgorithm(speed);
+        return diameter;
+
     }
 
     public List<Integer> findGraphCenterVisualised(int speed) {
@@ -315,7 +375,7 @@ public class Graph {
 
     public void visualiseAlgorithm(int speed) {
 
-        int additionalTime = 100*speed;
+        int additionalTime = 100*(11 - speed);
         int delay = additionalTime;
 
         try {
@@ -361,6 +421,14 @@ public class Graph {
                 timeline.play();
             }
         });
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     private class AlgorithmStep {

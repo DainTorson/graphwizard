@@ -136,6 +136,7 @@ public class DrawSpace extends Pane {
                 newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_SPRESSED, new VertexSecondaryPressedHandler());
                 vertexViews.add(newVertexView);
                 graph.addVertex(newVertex);
+                fireEvent(new DrawSpaceEvent(DrawSpaceEvent.DRAWSPACE_CHANGED));
             }
         }
     }
@@ -169,6 +170,7 @@ public class DrawSpace extends Pane {
                     edgeDrawContext.startVx = event.getTargetVx();
                     edgeDrawContext.isDrawing = true;
                 }
+                fireEvent(new DrawSpaceEvent(DrawSpaceEvent.DRAWSPACE_CHANGED));
             }
         }
     }
@@ -235,6 +237,8 @@ public class DrawSpace extends Pane {
                 for(Integer idx : activeIdx) {
                     graph.deleteEdge(edgeViews.get(idx).getEdge());
                 }
+
+                fireEvent(new DrawSpaceEvent(DrawSpaceEvent.DRAWSPACE_CHANGED));
             }
         }
     }
