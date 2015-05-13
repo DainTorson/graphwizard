@@ -81,6 +81,22 @@ public class Graph {
         return edges.get(index);
     }
 
+    public List<Vertex> getVertexes() {
+        return vertexes;
+    }
+
+    public void setVertexes(List<Vertex> vertexes) {
+        this.vertexes = vertexes;
+    }
+
+    public void setEdges(List<Edge> edges) {
+        this.edges = edges;
+    }
+
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
     public void clear() {
         for(Vertex vertex : vertexes) {
             vertex.delete();
@@ -273,7 +289,6 @@ public class Graph {
     public int findRadius(boolean stepsRecording) {
 
         Integer eccentricities [] = new Integer[getNumOfVertices()];
-        List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
         Integer radius = Integer.MAX_VALUE;
 
         for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
@@ -294,7 +309,6 @@ public class Graph {
     public int findDiameter(boolean stepsRecording) {
 
         Integer eccentricities [] = new Integer[getNumOfVertices()];
-        List<Integer> centralVerticesIdxs = new ArrayList<Integer>();
         Integer diameter = 0;
 
         for(int vertexIdx = 0; vertexIdx < getNumOfVertices(); ++vertexIdx) {
