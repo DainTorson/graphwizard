@@ -13,6 +13,8 @@ import com.dain_torson.graphwizard.drawspace.DrawSpace;
 import com.dain_torson.graphwizard.graph.Graph;
 import com.dain_torson.graphwizard.graph.elements.Edge;
 import com.dain_torson.graphwizard.graph.elements.Vertex;
+import com.dain_torson.graphwizard.graph.elements.views.EdgeView;
+import com.dain_torson.graphwizard.graph.elements.views.VertexView;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
@@ -22,6 +24,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -109,9 +114,6 @@ public class MenuFile extends Menu {
                 out.writeUTF(values[vertIdx]);
             }
 
-            String [] parts = file.getName().split("\\.");
-            graph.setName(parts[0]);
-            graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_SAVED, file));
         } catch (FileNotFoundException exception) {
             System.out.println("Error while saving file");
         } catch (IOException exception) {
@@ -152,9 +154,6 @@ public class MenuFile extends Menu {
                 graph.getDrawSpace().reset(graph, cooordinates);
             }
 
-            String [] parts = file.getName().split("\\.");
-            graph.setName(parts[0]);
-            graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_OPENED, file));
         }
         catch (FileNotFoundException exception) {
             System.out.println("Error while loading file");
@@ -197,11 +196,65 @@ public class MenuFile extends Menu {
         Element weight = document.createElement("weight");
         weight.setTextContent(String.valueOf(source.getValue()));
 
+        Element oriented = document.createElement("oriented");
+        oriented.setTextContent(String.valueOf(source.isOriented()));
+
         edge.appendChild(vertex1);
         edge.appendChild(vertex2);
         edge.appendChild(weight);
+        edge.appendChild(oriented);
 
         return edge;
+    }
+
+    private Vertex getVertexFromNode(Node source, DrawSpace drawSpace) {
+
+        Element element = (Element) source;
+
+        String value = element.getElementsByTagName("value").item(0).getTextContent();
+        Vertex vertex = new Vertex(value);
+        double xCoord = Double.valueOf(element.getElementsByTagName("coordX").item(0).getTextContent());
+        double yCoord = Double.valueOf(element.getElementsByTagName("coordY").item(0).getTextContent());
+        VertexView vertexView = new VertexView(xCoord, yCoord, drawSpace, vertex);
+        vertex.setView(vertexView);
+
+        return vertex;
+    }
+
+    private Edge getEdgeFromNode(Node source, DrawSpace drawSpace, List<Vertex> vertexes) {
+
+        Element element = (Element) source;
+
+        String first = element.getElementsByTagName("vertex1").item(0).getTextContent();
+        String second = element.getElementsByTagName("vertex2").item(0).getTextContent();
+        boolean oriented = Boolean.valueOf(element.getElementsByTagName("oriented").item(0).getTextContent());
+
+        Vertex vertex1 = new Vertex();
+        Vertex vertex2 = new Vertex();
+
+        for(Vertex vertex : vertexes) {
+            if(vertex.getValue().equals(first)) {
+                vertex1 = vertex;
+                break;
+            }
+        }
+
+        for(Vertex vertex : vertexes) {
+            if(vertex.getValue().equals(second)) {
+                vertex2 = vertex;
+                break;
+            }
+        }
+
+        Edge edge = new Edge(vertex1, vertex2, oriented);
+        EdgeView edgeView = new EdgeView(vertex1.getView(), vertex2.getView(), drawSpace, edge);
+        edge.setView(edgeView);
+
+        int weight = Integer.valueOf(element.getElementsByTagName("weight").item(0).getTextContent());
+        edge.setValue(weight);
+
+        return edge;
+
     }
 
     private void saveToXML(File file, Graph graph) {
@@ -248,6 +301,42 @@ public class MenuFile extends Menu {
     private void openXML(File file, Graph graph) {
 
         List<Vertex> vertexList = new ArrayList<Vertex>();
+        List<Edge> edgeList = new ArrayList<Edge>();
+
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document document = docBuilder.parse(file);
+
+            NodeList nodeList = document.getElementsByTagName("vertices");
+            Element verticesElement = (Element)nodeList.item(0);
+            NodeList vertNodeList = verticesElement.getElementsByTagName("vertex");
+            for(int nodeIdx= 0; nodeIdx < vertNodeList.getLength(); ++nodeIdx) {
+                vertexList.add(getVertexFromNode(vertNodeList.item(nodeIdx), graph.getDrawSpace()));
+            }
+
+            NodeList nList = document.getElementsByTagName("edges");
+            Element edgesElement = (Element)nList.item(0);
+            NodeList edgeNodeList = edgesElement.getElementsByTagName("edge");
+            for(int nodeIdx= 0; nodeIdx < edgeNodeList.getLength(); ++nodeIdx) {
+                edgeList.add(getEdgeFromNode(edgeNodeList.item(nodeIdx), graph.getDrawSpace(), vertexList));
+            }
+
+            graph.setVertexes(vertexList);
+            graph.setEdges(edgeList);
+            graph.getDrawSpace().reset(vertexList, edgeList);
+
+        }
+        catch (ParserConfigurationException exception) {
+            exception.printStackTrace();
+        }
+        catch (SAXException exception) {
+            exception.printStackTrace();
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
 
     }
 
@@ -284,7 +373,16 @@ public class MenuFile extends Menu {
                     new FileChooser.ExtensionFilter("XML", "*.xml"));
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
-                openBinary(file, graph);
+                if(fileChooser.getSelectedExtensionFilter().getExtensions().get(0).equals("*.gwg")){
+                    openBinary(file, graph);
+                }
+                else {
+                    openXML(file, graph);
+                }
+
+                String [] parts = file.getName().split("\\.");
+                graph.setName(parts[0]);
+                graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_OPENED, file));
             }
         }
     }
@@ -314,6 +412,10 @@ public class MenuFile extends Menu {
                 else {
                     saveToXML(file, graph);
                 }
+
+                String [] parts = file.getName().split("\\.");
+                graph.setName(parts[0]);
+                graph.getDrawSpace().fireEvent(new FileEvent(FileEvent.FILE_SAVED, file));
             }
         }
     }

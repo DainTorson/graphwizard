@@ -89,6 +89,32 @@ public class DrawSpace extends Pane {
         }
     }
 
+    public void reset(List<Vertex> vertexes, List<Edge> edges) {
+
+        vertexViews.clear();
+        edgeViews.clear();
+
+        for(Vertex vertex : vertexes) {
+            VertexView newVertexView = vertex.getView();
+            vertex.draw();
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new EdgeOperationHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_PRESSED, new VertexActivityHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_DELETED, new VertexDeleteHandler());
+            newVertexView.getCircle().addEventFilter(VertexEvent.VERTEX_SPRESSED, new VertexSecondaryPressedHandler());
+            vertexViews.add(newVertexView);
+        }
+
+        for(Edge edge : edges) {
+
+            EdgeView newEdgeView = edge.getView();
+            edge.draw();
+            newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_DELETED, new EdgeDeleteHandler());
+            newEdgeView.getPolygon().addEventFilter(EdgeEvent.EDGE_SPRESSED, new EdgeSecondaryPressedHandler());
+            edgeViews.add(newEdgeView);
+
+        }
+    }
+
     private void createEdge(Vertex firstVertex, Vertex secondVertex, boolean isOriented) {
 
         Edge newEdge = new Edge(firstVertex, secondVertex, isOriented);
